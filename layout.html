@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>{{ title }}</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="{{description}}">
+  <meta name="language" content="English">
+
+  <link href="/styles/dog-mobile.css" rel="stylesheet" type="text/css">
+  <link href="/styles/dog-tablet.css" rel="stylesheet" type="text/css">
+  <link href="/styles/dog-desktop.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+  <header>
+    <nav class="nav">
+      <a href="/" class="brand"><img src="/media/logo.png"></a>
+
+      <ul>
+        <li {{#nav.daycare}}class="active"{{/nav.daycare}}><a href="/daycare">Daycare</a></li>
+        <li {{#nav.boarding}}class="active"{{/nav.boarding}}><a href="/boarding">Boarding</a></li>
+        <li {{#nav.spa}}class="active"{{/nav.spa}}><a href="/spa">Spa</a></li>
+        <li {{#nav.about}}class="active"{{/nav.about}}><a href="/about">Our Story</a></li>
+        <li {{#nav.contact}}class="active"{{/nav.contact}}><a href="/contact">Contact Us</a></li>
+        <li {{#nav.reservation}}class="active"{{/nav.reservation}}>
+          <a href="/reservation/new">Reservations</a>
+
+          {{^disableReservationMenu}}
+          <div class="menu">
+            <form>
+              <div class="row">
+                <label class="radio"><input type="radio" name="newGuest" value="true" checked>New Guest</label>
+                <label class="radio"><input type="radio" name="newGuest" value="false">Returning Guest</label>
+              </div>
+
+              <div class="row">
+                <div class="group">
+                  <label>Drop Off</label>
+                  <input type="datetime">
+                </div><div class="group">
+                  <label>Pick Up</label>
+                  <input type="datetime">
+                </div>
+              </div>
+
+              <div class="row">
+                <label>Your Name</label>
+                <input type="text">
+              </div>
+
+              <div class="row">
+                <label>Pet's Name</label>
+                <input type="text">
+              </div>
+
+              <div class="row">
+                <button type="submit" class="attention">Claim Reservation</button>
+              </div>
+            </form>
+          </div>
+          {{/disableReservationMenu}}
+        </li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="content">{{{ yield }}}</section>
+</body>
+</html>

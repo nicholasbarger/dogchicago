@@ -1,0 +1,28 @@
+{
+  "name": "dogchicago",
+  "version": "0.0.1",
+  "authors": [
+    "Nicholas Barger <nicholas@nicholasbarger.com>"
+  ],
+  "description": "dogchicago.com website",
+  "main": "home.html",
+  "keywords": [
+    "dog chicago",
+    "dog boarding",
+    "dog daycare"
+  ],
+  "license": "MIT",
+  "homepage": "http://www.dogchicago.com",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "public/library",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "~3.3.4"
+  }
+}

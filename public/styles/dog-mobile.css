@@ -2,6 +2,7 @@
 
 body {
   font-family: 'Roboto', sans-serif;
+  font-size: 16px;
   margin: 0px;
   padding: 0px;
 }
@@ -29,6 +30,7 @@ form label {
   display: inline-block;
   width: 100px;
   margin-right: 5px;
+  margin-top: 5px;
   padding-top: 3px;
   padding-bottom: 3px;
   font-weight: 300
@@ -39,18 +41,38 @@ form label.radio, form label.checkbox {
 }
 form input, form textarea, form select {
   margin-bottom: 5px;
-  padding: 5px;
+  padding: 7px;
 }
 form input[type='text'], form textarea {
   width: 100%;
+  box-sizing: border-box;
+}
+
+h1 {
+  color: #fff;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+}
+
+h2 {
+
+}
+
+h3 {
+  color: teal;
+  font-size: 34px;
+  margin-top: 10px;
+  margin-bottom: 5px;
 }
 
 .nav {
   text-align: center;
   position: relative;
   z-index: 2;
-  height: 80px;
+  height: 83px;
   padding-top: 5px;
+  border-bottom: 2px solid #433C30;
 }
 .nav * {
   display: inline-block;
@@ -58,7 +80,7 @@ form input[type='text'], form textarea {
 .nav .menu {
   position: absolute;
   margin-left: -237px;
-  margin-top: 6px;
+  margin-top: 10px;
   padding: 30px;
   width: 300px;
   background-color: #64948E;
@@ -68,6 +90,11 @@ form input[type='text'], form textarea {
   -webkit-box-shadow: 5px 5px 5px #444;
   box-shadow: 5px 5px 5px #444;
   display: none;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+.nav .menu button[type="submit"] {
+  margin-top: 10px;
 }
 .nav ul {
   position: relative;
@@ -80,6 +107,8 @@ form input[type='text'], form textarea {
   padding-right: 30px;
   padding-bottom: 10px;
   padding-top: 10px;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
 }
 .nav ul li a {
   font-size: 16px;
@@ -104,9 +133,46 @@ form input[type='text'], form textarea {
   width: 100%;
 }
 .row .group {
-  width: 50%;
-  display: inline-block;
+  width: 49%;
+  margin-left: 0.5%;
+  margin-right: 0.5%;
+  display: inline-table;
 }
-.row.percent-33 {
-  width: 33.3333%;
+.row.percent-33 .group {
+  width: 32.3333%;
+  margin-left: 0.5%;
+  margin-right: 0.5%;
+}
+
+.teaser {
+  margin-top: 20px;
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
+.teaser img {
+  border-radius: 50%;
+  border: 7px solid teal;
+  text-align: center;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+.teaser .content {
+  padding-left: 20px;
+  padding-right: 20px;
+}
+.teaser h3 span {
+  color: #ccc;
+}
+.teaser .button {
+  border-radius: 5px;
+  background-color: #00D9DA;
+  color: #fff;
+  padding: 7px;
+  display: block;
+  width: 200px;
+  text-decoration: none;
+  font-weight: bold;
+  float: right;
+  text-align: center;
 }

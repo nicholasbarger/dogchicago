@@ -62,6 +62,12 @@ module.exports = function(app) {
     });
   });
 
+  app.post('/claim-reservation', function(req, res) {
+    var guestStatus = req;
+    console.log(req);
+    res.redirect('/reservation/' + guestStatus);
+  });
+
   app.get('/reservation/confirmed', function(req, res) {
     res.render('reservation-confirmed.html', {
       title: '',

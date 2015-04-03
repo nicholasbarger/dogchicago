@@ -14,6 +14,26 @@ module.exports = function(app) {
     });
   }
 
+  function newReservation(res, reservation) {
+    res.render('new-reservation.html', {
+      title: '',
+      description: '',
+      nav: setNav(null, 'reservation'),
+      disableReservationMenu: true,
+      reservation: reservation
+    });
+  }
+
+  function returningReservation(res, reservation) {
+    res.render('returning-reservation.html', {
+      title: '',
+      description: '',
+      nav: setNav(null, 'reservation'),
+      disableReservationMenu: true,
+      reservation: reservation
+    });
+  }
+
   app.get('/', function(req, res) {
     res.render('home.html', {
       title: 'Dog Hotel and Daycare - Dog Daycare Chicago, Dog Boarding Chicago',
@@ -63,9 +83,13 @@ module.exports = function(app) {
   });
 
   app.post('/claim-reservation', function(req, res) {
-    var guestStatus = req;
-    console.log(req);
-    res.redirect('/reservation/' + guestStatus);
+    var reservation = req.body;
+    if(reservation.newGuest) {
+      newReservation(res, reservation);
+    }
+    else {
+      returningReservation(res, reservation);
+    }
   });
 
   app.get('/reservation/confirmed', function(req, res) {
@@ -78,21 +102,11 @@ module.exports = function(app) {
   });
 
   app.get('/reservation/new', function(req, res) {
-    res.render('new-reservation.html', {
-      title: '',
-      description: '',
-      nav: setNav(null, 'reservation'),
-      disableReservationMenu: true
-    });
+    newReservation(res);
   });
 
   app.get('/reservation/returning', function(req, res) {
-    res.render('returning-reservation.html', {
-      title: '',
-      description: '',
-      nav: setNav(null, 'reservation'),
-      disableReservationMenu: true
-    });
+    returningReservation(res);
   });
 
   app.get('/spa', function(req, res) {

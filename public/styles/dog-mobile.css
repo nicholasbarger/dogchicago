@@ -187,6 +187,7 @@ h4 {
 .teaser .teaser-content {
   padding-left: 20px;
   padding-right: 20px;
+  margin-left: 30px;
 }
 .teaser h3 {
   color: teal;
@@ -207,4 +208,8 @@ h4 {
   font-weight: bold;
   float: right;
   text-align: center;
+}
+
+.webcams img {
+  max-width: 500px;
 }

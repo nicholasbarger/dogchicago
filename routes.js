@@ -38,8 +38,7 @@ module.exports = function(app) {
     res.render('home.html', {
       title: 'Dog Hotel and Daycare - Dog Daycare Chicago, Dog Boarding Chicago',
       description: 'Dog hotel and daycare offering boarding and daycare services on 1030 N Halsted Chicago, IL 60642 ' +
-      '24 hours a day',
-      nav: setNav(null, 'reservation')
+      '24 hours a day'
     });
   });
 
@@ -92,6 +91,13 @@ module.exports = function(app) {
     }
   });
 
+  app.get('/privacy', function(req, res) {
+    res.render('privacy-policy.html', {
+      title: 'Dog Hotel and Daycare Privacy Policy',
+      description: ''
+    });
+  });
+
   app.get('/reservation/confirmed', function(req, res) {
     res.render('reservation-confirmed.html', {
       title: '',
@@ -114,6 +120,13 @@ module.exports = function(app) {
       title: '',
       description: '',
       nav: setNav(null, 'spa')
+    });
+  });
+
+  app.get('/terms', function(req, res) {
+    res.render('terms.html', {
+      title: 'Dog Hotel and Daycare Terms and Conditions',
+      description: ''
     });
   });
 };

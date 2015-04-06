@@ -1,0 +1,88 @@
+@media only screen
+and (min-width : 768px) {
+  .header-info * {
+    display: inline;
+    vertical-align: top;
+  }
+  .header-info .social-links {
+    float: right;
+  }
+  .header-info span {
+    display: inline-block;
+    padding-top: 5px;
+    margin-right: 10px;
+    float: right;
+  }
+
+  .nav {
+    position: relative;
+    z-index: 2;
+    height: 83px;
+  }
+
+  .nav .menu {
+    position: absolute;
+    margin-left: -237px;
+    margin-top: 10px;
+    padding: 30px;
+    width: 300px;
+    background-color: #64948E;
+    color: #fff;
+    text-align: left;
+    -moz-box-shadow: 5px 5px 5px #444;
+    -webkit-box-shadow: 5px 5px 5px #444;
+    box-shadow: 5px 5px 5px #444;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+  }
+  .nav .menu button[type="submit"] {
+    margin-top: 10px;
+  }
+  .nav ul {
+    position: absolute;
+    top: 35px;
+    left: 200px;
+    padding: 0px;
+  }
+  .nav ul li {
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+  }
+  .nav ul li.active {
+    background-color: #75A9A3;
+  }
+  .nav ul li:hover {
+    background-color: #64948E;
+  }
+  .nav ul li.active a, .nav ul li:hover a {
+    color: #fff;
+  }
+  .nav ul li.active .menu, .nav ul li:last-child:hover .menu {
+    display: block;
+  }
+
+  .row {
+    width: 100%;
+  }
+  .row .group {
+    width: 49%;
+    margin-left: 0.5%;
+    margin-right: 0.5%;
+    display: inline-table;
+  }
+  .row.percent-33 .group {
+    width: 32.3333%;
+    margin-left: 0.5%;
+    margin-right: 0.5%;
+  }
+
+  .teasers.percent-33 .group {
+    width: 32.3333%;
+    margin-left: 0.5%;
+    margin-right: 0.5%;
+  }
+}

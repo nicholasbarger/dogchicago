@@ -17,6 +17,7 @@ body {
 button, input[type="button"], input[type="submit"], a.button {
   margin: 0em;
   font: normal normal normal 11px/normal '.HelveticaNeueDeskInterface-Regular';
+  color: initial;
   letter-spacing: normal;
   word-spacing: normal;
   text-transform: none;
@@ -26,13 +27,12 @@ button, input[type="button"], input[type="submit"], a.button {
   border: none;
   border-radius: 5px;
   padding: 10px;
+  background-color: #fff;
   text-decoration: none;
   align-items: flex-start;
   text-align: center;
   cursor: pointer;
   box-sizing: border-box;
-  background-color: teal;
-  color: #fff;
 }
 button.attention, input[type="button"].attention, input[type="submit"].attention {
   background-color: #00D9DA;
@@ -87,16 +87,12 @@ form input[type='text'], form textarea, form input[type='email'] {
 form .row .group {
   display: inline-table;
 }
-form .actions {
-  margin-top: 15px;
-}
 
 h1 {
   color: #fff;
   position: absolute;
   top: 0px;
   left: 0px;
-  visibility: hidden;
 }
 
 h2 {
@@ -134,7 +130,11 @@ h4 {
 }
 
 .nav {
+  /*text-align: center;*/
   padding-left: 30px;
+  position: relative;
+  z-index: 2;
+  height: 83px;
   padding-top: 5px;
   border-bottom: 4px solid #64948E;
 }
@@ -142,19 +142,37 @@ h4 {
   display: inline-block;
 }
 .nav .menu {
+  position: absolute;
+  margin-left: -237px;
+  margin-top: 10px;
+  padding: 30px;
+  width: 300px;
+  background-color: #64948E;
+  color: #fff;
+  text-align: left;
+  -moz-box-shadow: 5px 5px 5px #444;
+  -webkit-box-shadow: 5px 5px 5px #444;
+  box-shadow: 5px 5px 5px #444;
   display: none;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+.nav .menu button[type="submit"] {
+  margin-top: 10px;
 }
 .nav ul {
-  /*position: relative;*/
-  /*top: -80px;*/
-  /*margin-left: 30px;*/
+  position: relative;
+  top: -80px;
+  margin-left: 30px;
   padding: 0px;
-  text-align: justify;
 }
 .nav ul li {
-  padding: 0px;
-  display: inline-table;
-  padding-left: 6px;
+  padding-left: 30px;
+  padding-right: 30px;
+  padding-bottom: 10px;
+  padding-top: 10px;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
 }
 .nav ul li a {
   font-size: 16px;
@@ -162,8 +180,32 @@ h4 {
   color: #111;
   text-decoration: none;
 }
-.nav ul li.active, .nav ul li.active a, .nav ul li:hover a {
-  color: teal;
+.nav ul li.active {
+  background-color: #75A9A3;
+}
+.nav ul li:hover {
+  background-color: #64948E;
+}
+.nav ul li.active a, .nav ul li:hover a {
+  color: #fff;
+}
+.nav ul li.active .menu, .nav ul li:last-child:hover .menu {
+  display: block;
+}
+
+.row {
+  width: 100%;
+}
+.row .group {
+  width: 49%;
+  margin-left: 0.5%;
+  margin-right: 0.5%;
+  display: inline-table;
+}
+.row.percent-33 .group {
+  width: 32.3333%;
+  margin-left: 0.5%;
+  margin-right: 0.5%;
 }
 
 .specials {
@@ -208,15 +250,10 @@ h4 {
 .teasers {
   background-color: #ECECEC;
 }
-.teasers.percent-33 .group {
-    width: 100%;
-}
 
 .teaser {
   margin-top: 20px;
   padding-top: 30px;
-  margin-left: auto;
-  margin-right: auto;
   padding-bottom: 30px;
 }
 .teaser img {

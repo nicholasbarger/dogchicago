@@ -1,7 +1,26 @@
 @media only screen
 and (min-width : 768px) {
+  .background {
+    min-height: 500px;
+    background: no-repeat center top fixed;
+  }
+  .background-boarding {
+    background-image: url('/media/boarding.jpg');
+  }
+  .background-daycare {
+    background-image: url('/media/daycare.jpg');
+  }
+  .background-spa {
+    background-image: url('/media/spa.jpg');
+  }
+
   .brand {
     margin-top: -30px;
+  }
+
+  form label.radio, form label.checkbox {
+    width: inherit;
+    display: inline;
   }
 
   .header-info {
@@ -94,8 +113,5 @@ and (min-width : 768px) {
     width: 32.3333%;
     margin-left: 0.5%;
     margin-right: 0.5%;
-  }
-  .teaser .teaser-content {
-    margin-left: 0px;
   }
 }

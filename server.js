@@ -10,6 +10,11 @@ var path = require('path');
 var hoganExpress = require('hogan-express');
 var compress = require('compression')();
 
+var api_user = process.env.SENDGRID_USERNAME;
+var api_key = process.env.SENDGRID_PASSWORD;
+
+var emailProvider = require("sendgrid")(api_user, api_key);
+
 // start express
 var app = express();
 
@@ -41,7 +46,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(favicon(__dirname +  '/public/favicons/favicon.ico'));
 
 // initialize routes for web
-var web = require('./routes.js')(app);
+var web = require('./routes.js')(app, emailProvider);
 
 app.use(function(req, res, next){
   res.status(404);

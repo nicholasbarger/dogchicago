@@ -1,4 +1,5 @@
 @import url(http://fonts.googleapis.com/css?family=Roboto:300,400);
+@import url(http://fonts.googleapis.com/css?family=Montserrat);
 
 a {
   color: teal;
@@ -12,6 +13,7 @@ body {
   font-size: 16px;
   margin: 0px;
   padding: 0px;
+  background-color: whitesmoke;
 }
 
 button, input[type="button"], input[type="submit"], a.button {
@@ -44,7 +46,19 @@ button.attention, input[type="button"].attention, input[type="submit"].attention
 .background {
   z-index: 1;
   width: 100%;
+  height: 200px;
   border-bottom: 2px solid #433C30;
+}
+.background-boarding {
+  background-image: url('/media/boarding-sm.jpg');
+  background-position: center;
+}
+.background-daycare {
+  background-image: url('/media/daycare-sm.jpg');
+}
+.background-spa {
+  background-image: url('/media/spa-sm.jpg');
+  background-position: left;
 }
 
 .content {
@@ -74,7 +88,6 @@ form label {
 }
 form label.radio, form label.checkbox {
   width: inherit;
-  display: inline;
 }
 form input, form textarea, form select {
   margin-bottom: 5px;
@@ -84,11 +97,18 @@ form input[type='text'], form textarea, form input[type='email'] {
   width: 100%;
   box-sizing: border-box;
 }
+form textarea {
+  height: 100px;
+}
 form .row .group {
   display: inline-table;
 }
 form .actions {
   margin-top: 15px;
+}
+
+h1, h2, h3, h4 {
+  font-family: 'Montserrat', 'Roboto', sans-serif;
 }
 
 h1 {
@@ -111,6 +131,10 @@ h4 {
   font-size: 1.75em;
 }
 
+header {
+  background-color: #fff;
+}
+
 .header-info {
   color: #777;
   display: block;
@@ -122,6 +146,7 @@ h4 {
   padding-top: 50px;
   padding-bottom: 50px;
   color: #777;
+  background-color: #fff;
 }
 .mission h2 {
   font-size: 3.5em;
@@ -234,7 +259,6 @@ h4 {
 .teaser .teaser-content {
   padding-left: 20px;
   padding-right: 20px;
-  margin-left: 30px;
 }
 .teaser h3 {
   color: teal;
@@ -259,5 +283,6 @@ h4 {
 
 .webcams img {
   max-width: 475px;
-  border: 10px solid #ccc;
+  width: 95%;
+  border: 10px solid #fff;
 }

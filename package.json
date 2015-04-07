@@ -23,6 +23,7 @@
     "hogan-express": "^0.5.2",
     "morgan": "^1.5.2",
     "path": "^0.11.14",
+    "sendgrid": "^1.6.1",
     "serve-favicon": "^2.2.0"
   }
 }

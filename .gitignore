@@ -6,3 +6,4 @@ public/library
 tmp
 .DS_Store
 .idea
+.env

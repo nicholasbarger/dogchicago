@@ -1,4 +1,4 @@
-module.exports = function(app) {
+module.exports = function(app, emailProvider) {
   function setNav(nav, active) {
     if(nav == null) {
       nav = {};
@@ -66,6 +66,22 @@ module.exports = function(app) {
     });
   });
 
+  app.post('/contact', function(req, res) {
+    var contactMessage = req.body;
+    var email = new emailProvider.Email();
+    var message = '<p>Phone Number: ' + contactMessage.phone + '</p>';
+    message += contactMessage.message;
+
+    email.addTo(process.env.CONTACT_EMAIL);
+    email.setFrom(contactMessage.email);
+    email.setSubject('Message from dogchicago.com (' + contactMessage.name + ')');
+    email.setHtml(message);
+
+    emailProvider.send(email);
+
+    res.redirect('/contact-sent');
+  });
+
   app.get('/contact-sent', function(req, res) {
     res.render('contact-sent', {
       title: '',
@@ -111,8 +127,16 @@ module.exports = function(app) {
     newReservation(res);
   });
 
+  app.post('/reservation/new', function(req, res) {
+    throw new Error('Not implemented yet.');
+  });
+
   app.get('/reservation/returning', function(req, res) {
     returningReservation(res);
+  });
+
+  app.post('/reservation/returning', function(req, res) {
+    throw new Error('Not implemented yet.');
   });
 
   app.get('/spa', function(req, res) {
@@ -121,6 +145,13 @@ module.exports = function(app) {
       description: '',
       nav: setNav(null, 'spa')
     });
+  });
+
+  app.get('/stylesheet', function(req, res) {
+    res.render('stylesheet.html', {
+      title: 'Stylesheet for Dog Hotel and Daycare',
+      description: 'This is just used for development and viewing changes to the styles.'
+    })
   });
 
   app.get('/terms', function(req, res) {

@@ -54,7 +54,10 @@ module.exports = function(app, emailProvider) {
     res.render('boarding.html', {
       title: '',
       description: '',
-      nav: setNav(null, 'boarding')
+      nav: setNav(null, 'boarding'),
+      partials: {
+        healthPartial: 'health-partial'
+      }
     });
   });
 
@@ -89,14 +92,6 @@ module.exports = function(app, emailProvider) {
     });
   });
 
-  app.get('/daycare', function(req, res) {
-    res.render('daycare.html', {
-      title: '',
-      description: '',
-      nav: setNav(null, 'daycare')
-    });
-  });
-
   app.post('/claim-reservation', function(req, res) {
     var reservation = req.body;
     if(reservation.newGuest) {
@@ -105,6 +100,25 @@ module.exports = function(app, emailProvider) {
     else {
       returningReservation(res, reservation);
     }
+  });
+
+  app.get('/daycare', function(req, res) {
+    res.render('daycare.html', {
+      title: '',
+      description: '',
+      nav: setNav(null, 'daycare'),
+      partials: {
+        healthPartial: 'health-partial'
+      }
+    });
+  });
+
+  app.get('/health', function(req, res) {
+    res.render('health.html', {
+      title: '',
+      description: '',
+      nav: setNav(null, 'boarding')
+    })
   });
 
   app.get('/privacy', function(req, res) {

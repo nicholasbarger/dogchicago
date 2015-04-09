@@ -4,23 +4,19 @@
 
   <form method="post" action="/reservation/new">
     <div class="row">
-      <div class="group">
-        <label>Drop Off</label>
-        <input type="datetime" id="dropOff" name="dropOff">
-      </div><div class="group">
-      <label>Pick Up</label>
-      <input type="datetime" id="pickUp" name="pickUp">
-    </div>
+      <label class="required">Drop Off / Pick Up</label>
+      <input type="datetime" id="dropOff" name="dropOff" placeholder="drop off" required>
+      <input type="datetime" id="pickUp" name="pickUp" placeholder="pick up" required>
     </div>
 
     <div class="row">
-      <label>Your Name</label>
-      <input type="text" id="ownerName" name="ownerName">
+      <label class="required">Your Name</label>
+      <input type="text" id="ownerName" name="ownerName" required>
     </div>
 
     <div class="row">
-      <label>Pet's Name</label>
-      <input type="text" id="petName" name="petName">
+      <label class="required">Pet's Name</label>
+      <input type="text" id="petName" name="petName" required>
     </div>
 
     <div class="row">
@@ -35,13 +31,13 @@
     </div>
 
     <div class="row">
-      <label>Email Address</label>
-      <input type="email" id="email" name="email">
+      <label class="required">Email Address</label>
+      <input type="email" id="email" name="email" required>
     </div>
 
     <div class="row">
-      <label>Phone Number</label>
-      <input type="tel" id="phone" name="phone">
+      <label class="required">Phone Number</label>
+      <input type="tel" id="phone" name="phone" required>
     </div>
 
     <div class="row">
@@ -49,25 +45,28 @@
       <input type="tel" id="altPhone" name="altPhone">
     </div>
 
-    <div class="row percent-33">
-      <label>Room</label>
+    <div class="row percent-33 suites">
+      <label class="required">Room</label>
       <div class="group">
-        Junior Suite
+        <img src="/media/grand-suite.jpg">
+        <p><label class="radio"><input type="radio" name="suite" value="junior"> Junior Suite</label></p>
       </div><div class="group">
-        Deluxe Suite
+        <img src="/media/grand-suite.jpg">
+        <p><label class="radio"><input type="radio" name="suite" value="deluxe"> Deluxe Suite</label></p>
       </div><div class="group">
-        Grand Suite (includes suite web cam)
+        <img src="/media/grand-suite.jpg">
+        <p><label class="radio"><input type="radio" name="suite" value="grand"> Grand Suite (includes suite web cam)</label></p>
       </div>
     </div>
 
     <div class="row">
-      <label>Dog Breed</label>
-      <input type="text" id="breed" name="breed">
+      <label class="required">Dog Breed</label>
+      <input type="text" id="breed" name="breed" required>
     </div>
 
     <div class="row">
       <label>Dog Age (or birthdate)</label>
-      <input type="text" id="petBirthdate" name="petBirthdate">
+      <input type="text" id="petBirthdate" name="petBirthdate" class="small">
     </div>
 
     <div class="row">
@@ -104,8 +103,8 @@
     </div>
 
     <div class="row">
-      <label>Vet/Clinic</label>
-      <input type="text" id="vetName" name="vetName">
+      <label class="required">Vet/Clinic</label>
+      <input type="text" id="vetName" name="vetName" required>
     </div>
 
     <div class="row">
@@ -114,13 +113,13 @@
     </div>
 
     <div class="row">
-      <label>Emergency Contact</label>
-      <input type="text" id="emergencyContactName" name="emergencyContactName" placeholder="Name">
+      <label class="required">Emergency Contact</label>
+      <input type="text" id="emergencyContactName" name="emergencyContactName" placeholder="Name" required>
     </div>
 
     <div class="row">
-      <label>Emergency Phone Number</label>
-      <input type="tel" id="emergencyPhone" name="emergencyPhone">
+      <label class="required">Emergency Phone Number</label>
+      <input type="tel" id="emergencyPhone" name="emergencyPhone" required>
     </div>
 
     <div class="row">
@@ -129,7 +128,7 @@
     </div>
 
     <div class="row">
-      <label class="checkbox"><input type="checkbox">I agree to the <a href="/terms">terms of service</a></label>
+      <label class="checkbox required"><input type="checkbox" required>I agree to the <a href="/terms">terms of service</a></label>
     </div>
 
     <div class="row actions">

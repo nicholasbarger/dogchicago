@@ -43,12 +43,20 @@ button, input[type="button"], input[type="submit"], a.button {
   box-sizing: border-box;
   background-color: teal;
   color: #fff;
+  vertical-align: middle;
 }
 button.attention, input[type="button"].attention, input[type="submit"].attention, .button.attention {
   background-color: #00D9DA;
   color: #fff;
   font-size: 1.5em;
   width: 100%;
+}
+button.small, input[type="button"].small, input[type="submit"].small, .button.small {
+  font-size: 0.5em;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-top: 4px;
+  padding-bottom: 4px;
 }
 
 .background {

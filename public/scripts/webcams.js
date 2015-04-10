@@ -6,25 +6,31 @@
 */
 
 // start timer
-setInterval(refreshWebCams, 2000);
+function unlock(camera) {
+  var password = document.getElementById(camera + 'Password').value;
+  setInterval(function() { refreshWebCams(camera, password) }, 2000);
+};
+
 
 // call dom elements to refresh
-function refreshWebCams() {
-  updateImageSrc('cam1');
-  updateImageSrc('cam2');
-  updateImageSrc('cam3');
+function refreshWebCams(camera, password) {
+  updateImageSrc(camera, password);
 }
 
 // construct new img src and reload
-function updateImageSrc(id) {
+function updateImageSrc(id, password) {
   var target = document.getElementById(id);
   var src = target.src;
   var timeNumber = Date.now();
   var splitArray = src.split('&t=');
   if(splitArray.length === 1) {
-    target.src = src + '&t=' + timeNumber;
+    src = src + '&t=' + timeNumber;
   }
   else {
-    target.src = splitArray[0] + '&t=' + timeNumber;
+    src = splitArray[0] + '&t=' + timeNumber;
   }
+
+  src += '&pwd=' + password;
+  console.log(src);
+  target.src = src;
 }

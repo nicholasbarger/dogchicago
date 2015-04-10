@@ -44,7 +44,7 @@ button, input[type="button"], input[type="submit"], a.button {
   background-color: teal;
   color: #fff;
 }
-button.attention, input[type="button"].attention, input[type="submit"].attention {
+button.attention, input[type="button"].attention, input[type="submit"].attention, .button.attention {
   background-color: #00D9DA;
   color: #fff;
   font-size: 1.5em;

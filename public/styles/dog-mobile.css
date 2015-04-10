@@ -97,6 +97,20 @@ footer a {
 form {
   text-align: left;
 }
+form fieldset {
+  border: none;
+  margin: 0px;
+  margin-bottom: 25px;
+  padding: 0px;
+  padding-top: 10px;
+}
+form fieldset legend {
+  background-color: cadetblue;
+  width: 100%;
+  padding: 10px;
+  color: #fff;
+  text-align: center;
+}
 form label {
   display: block;
   margin-right: 5px;
@@ -107,6 +121,7 @@ form label {
 }
 form label.radio, form label.checkbox {
   width: inherit;
+  margin-bottom: 5px;
 }
 form label.required:after {
   content: url('/media/required.png');
@@ -114,7 +129,7 @@ form label.required:after {
 form label.checkbox.required {
   font-weight: bold;
 }
-form input, form textarea, form select {
+form input, form textarea, form select  {
   margin-bottom: 5px;
   padding: 7px;
 }

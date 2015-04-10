@@ -3,124 +3,141 @@
   <p>We can't wait to have you.  To confirm your reservation, please fill out the following information.</p>
 
   <form method="post" action="/reservation/new">
-    <div class="row">
-      <label class="required">Drop Off / Pick Up</label>
-      <input type="datetime" id="dropOff" name="dropOff" placeholder="drop off" required>
-      <input type="datetime" id="pickUp" name="pickUp" placeholder="pick up" required>
-    </div>
+    <fieldset>
+      <legend>Owner Information</legend>
 
-    <div class="row">
-      <label class="required">Your Name</label>
-      <input type="text" id="ownerName" name="ownerName" required>
-    </div>
-
-    <div class="row">
-      <label class="required">Pet's Name</label>
-      <input type="text" id="petName" name="petName" required>
-    </div>
-
-    <div class="row">
-      <label>Address</label>
-      <input type="text" id="street1" name="street1" placeholder="Street 1"><br>
-      <input type="text" id="street2" name="street2" placeholder="Street 2"><br>
-      <input type="text" id="city" name="city" placeholder="City"><br>
-      <select id="state" name="state">
-        <option>Illinois</option>
-      </select><br>
-      <input type="text" id="zipcode" name="zipcode"><br>
-    </div>
-
-    <div class="row">
-      <label class="required">Email Address</label>
-      <input type="email" id="email" name="email" required>
-    </div>
-
-    <div class="row">
-      <label class="required">Phone Number</label>
-      <input type="tel" id="phone" name="phone" required>
-    </div>
-
-    <div class="row">
-      <label>Alternate Phone Number</label>
-      <input type="tel" id="altPhone" name="altPhone">
-    </div>
-
-    <div class="row percent-33 suites">
-      <label class="required">Room</label>
-      <div class="group">
-        <img src="/media/grand-suite.jpg">
-        <p><label class="radio"><input type="radio" name="suite" value="junior"> Junior Suite</label></p>
-      </div><div class="group">
-        <img src="/media/grand-suite.jpg">
-        <p><label class="radio"><input type="radio" name="suite" value="deluxe"> Deluxe Suite</label></p>
-      </div><div class="group">
-        <img src="/media/grand-suite.jpg">
-        <p><label class="radio"><input type="radio" name="suite" value="grand"> Grand Suite (includes suite web cam)</label></p>
+      <div class="row">
+        <label class="required">Your Name</label>
+        <div class="group">
+          <input type="text" id="ownerFirstName" name="ownerFirstName" placeholder="first name" required>
+        </div><div class="group">
+          <input type="text" id="ownerLastName" name="ownerLastName" placeholder="last name" required>
+        </div>
       </div>
-    </div>
 
-    <div class="row">
-      <label class="required">Dog Breed</label>
-      <input type="text" id="breed" name="breed" required>
-    </div>
+      <div class="row">
+        <label>Address</label>
+        <input type="text" id="street1" name="street1" placeholder="Street 1"><br>
+        <input type="text" id="street2" name="street2" placeholder="Street 2"><br>
+        <input type="text" id="city" name="city" placeholder="City"><br>
+        <select id="state" name="state">
+          {{> stateListPartial }}
+        </select>
+        <input type="text" id="zipcode" name="zipcode" placeholder="zipcode" class="small"><br>
+      </div>
 
-    <div class="row">
-      <label>Dog Age (or birthdate)</label>
-      <input type="text" id="petBirthdate" name="petBirthdate" class="small">
-    </div>
+      <div class="row">
+        <label class="required">Email Address</label>
+        <input type="email" id="email" name="email" required>
+      </div>
 
-    <div class="row">
-      <label>Spay/Neuter Status</label>
-      <label class="radio"><input type="radio" id="spayed" name="spayedStatus" value="spayed">Spayed</label>
-      <label class="radio"><input type="radio" id="neutered" name="spayedStatus" value="neutered">Neutered</label>
-      <label class="radio"><input type="radio" id="unalteredMale" name="spayedStatus" value="unaltered-male">Unaltered Male</label>
-      <label class="radio"><input type="radio" id="unalteredFemale" name="spayedStatus" value="unaltered-female">Unaltered Female</label>
-    </div>
+      <div class="row">
+        <label class="required">Phone Number</label>
+        <input type="tel" id="phone" name="phone" required>
+      </div>
 
-    <div class="row">
-      <label>Weight</label>
-      <input type="number" id="weight" name="weight">
-    </div>
+      <div class="row">
+        <label>Alternate Phone Number</label>
+        <input type="tel" id="altPhone" name="altPhone">
+      </div>
 
-    <div class="row">
-      <label>Color</label>
-      <input type="text" id="color" name="color">
-    </div>
+      <div class="row">
+        <label class="required">Vet/Clinic</label>
+        <input type="text" id="vetName" name="vetName" required>
+      </div>
 
-    <div class="row">
-      <label>Personality</label>
-      <label class="checkbox"><input type="checkbox" id="isShy" name="isShy">Shy</label>
-      <label class="checkbox"><input type="checkbox" id="isNervous" name="isNervous">Nervous</label>
-      <label class="checkbox"><input type="checkbox" id="isSocial" name="isSocial">Social</label>
-      <label class="checkbox"><input type="checkbox" id="isDogAggressive" name="isDogAggressive">Dog-Aggressive</label>
-      <label class="checkbox"><input type="checkbox" id="isPeopleAggressive" name="isPeopleAggressive">People-Aggressive</label>
-      <label class="checkbox"><input type="checkbox" id="isOther" name="isOther">Other</label>
-    </div>
+      <div class="row">
+        <label>Vet Phone Number</label>
+        <input type="tel" id="vetPhone" name="vetPhone">
+      </div>
 
-    <div class="row">
-      <label>Does your dog have any allergy or medical conditions?</label>
-      <textarea id="medicalNotes" name="medicalNotes"></textarea>
-    </div>
+      <div class="row">
+        <label class="required">Emergency Contact</label>
+        <input type="text" id="emergencyContactName" name="emergencyContactName" placeholder="Name" required>
+      </div>
 
-    <div class="row">
-      <label class="required">Vet/Clinic</label>
-      <input type="text" id="vetName" name="vetName" required>
-    </div>
+      <div class="row">
+        <label class="required">Emergency Phone Number</label>
+        <input type="tel" id="emergencyPhone" name="emergencyPhone" required>
+      </div>
+    </fieldset>
 
-    <div class="row">
-      <label>Vet Phone Number</label>
-      <input type="tel" id="vetPhone" name="vetPhone">
-    </div>
+    <fieldset>
+      <legend>Guest Information</legend>
 
-    <div class="row">
-      <label class="required">Emergency Contact</label>
-      <input type="text" id="emergencyContactName" name="emergencyContactName" placeholder="Name" required>
-    </div>
+      <div class="row">
+        <label class="required">Drop Off / Pick Up</label>
+        <input type="datetime" id="dropOff" name="dropOff" placeholder="drop off" class="datepicker" required>
+        <input type="datetime" id="pickUp" name="pickUp" placeholder="pick up" class="datepicker" required>
+      </div>
 
-    <div class="row">
-      <label class="required">Emergency Phone Number</label>
-      <input type="tel" id="emergencyPhone" name="emergencyPhone" required>
-    </div>
+      <div class="row">
+        <label class="required">Number of Guests</label>
+        <input type="number" id="numberOfGuests" name="numberOfGuests" required>
+      </div>
+
+      <div class="row">
+        <label class="required">Pet's Name</label>
+        <input type="text" id="petName" name="petName" required>
+      </div>
+
+      <div class="row percent-33 suites">
+        <label class="required">Room</label>
+        <div class="group">
+          <img src="/media/grand-suite.jpg">
+          <p><label class="radio"><input type="radio" name="suite" value="junior"> Junior Suite</label></p>
+        </div><div class="group">
+          <img src="/media/grand-suite.jpg">
+          <p><label class="radio"><input type="radio" name="suite" value="deluxe"> Deluxe Suite</label></p>
+        </div><div class="group">
+          <img src="/media/grand-suite.jpg">
+          <p><label class="radio"><input type="radio" name="suite" value="grand"> Grand Suite (includes suite web cam)</label></p>
+        </div>
+      </div>
+
+      <div class="row">
+        <label class="required">Dog Breed</label>
+        <input type="text" id="breed" name="breed" required>
+      </div>
+
+      <div class="row">
+        <label>Dog Age (or birthdate)</label>
+        <input type="text" id="petBirthdate" name="petBirthdate" class="small">
+      </div>
+
+      <div class="row">
+        <label>Spay/Neuter Status</label>
+        <label class="radio"><input type="radio" id="spayed" name="spayedStatus" value="spayed">Spayed</label>
+        <label class="radio"><input type="radio" id="neutered" name="spayedStatus" value="neutered">Neutered</label>
+        <label class="radio"><input type="radio" id="unalteredMale" name="spayedStatus" value="unaltered-male">Unaltered Male</label>
+        <label class="radio"><input type="radio" id="unalteredFemale" name="spayedStatus" value="unaltered-female">Unaltered Female</label>
+      </div>
+
+      <div class="row">
+        <label>Weight</label>
+        <input type="number" id="weight" name="weight">
+      </div>
+
+      <div class="row">
+        <label>Color</label>
+        <input type="text" id="color" name="color">
+      </div>
+
+      <div class="row">
+        <label>Personality</label>
+        <label class="checkbox"><input type="checkbox" id="isShy" name="isShy">Shy</label>
+        <label class="checkbox"><input type="checkbox" id="isNervous" name="isNervous">Nervous</label>
+        <label class="checkbox"><input type="checkbox" id="isSocial" name="isSocial">Social</label>
+        <label class="checkbox"><input type="checkbox" id="isDogAggressive" name="isDogAggressive">Dog-Aggressive</label>
+        <label class="checkbox"><input type="checkbox" id="isPeopleAggressive" name="isPeopleAggressive">People-Aggressive</label>
+        <label class="checkbox"><input type="checkbox" id="isOther" name="isOther">Other</label>
+      </div>
+
+      <div class="row">
+        <label>Does your dog have any allergy or medical conditions?</label>
+        <textarea id="medicalNotes" name="medicalNotes"></textarea>
+      </div>
+    </fieldset>
 
     <div class="row">
       <label>Additional Notes or Comments</label>

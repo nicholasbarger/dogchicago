@@ -9,12 +9,10 @@
   <meta name="language" content="English">
 
   <link href="/library/font-awesome/css/font-awesome.css" rel="stylesheet" type="text/css">
+  <link href="/library/jquery-ui/themes/cupertino/jquery-ui.css" rel="stylesheet" type="text/css">
   <link href="/styles/dog-mobile.css" rel="stylesheet" type="text/css">
   <link href="/styles/dog-tablet.css" rel="stylesheet" type="text/css">
   <link href="/styles/dog-desktop.css" rel="stylesheet" type="text/css">
-
-  <script type="text/javascript" src="/library/jquery/dist/jquery.js"></script>
-  <script type="text/javascript" src="/library/jquery-ui/ui/core.js"></script>
 </head>
 <body>
   <header>
@@ -53,10 +51,10 @@
               <div class="row">
                 <div class="group">
                   <label>Drop Off</label>
-                  <input type="datetime" id="dropOff" name="dropOff">
+                  <input type="datetime" id="dropOff" name="dropOff" class="datepicker">
                 </div><div class="group">
                   <label>Pick Up</label>
-                  <input type="datetime" id="pickUp" name="pickUp">
+                  <input type="datetime" id="pickUp" name="pickUp" class="datepicker">
                 </div>
               </div>
 
@@ -98,5 +96,11 @@
       </ul>
     </nav>
   </footer>
+
+  <!-- scripts -->
+  <script type="text/javascript" src="/library/jquery/dist/jquery.js"></script>
+  <script type="text/javascript" src="/library/jquery-ui/ui/core.js"></script>
+  <script type="text/javascript" src="/library/jquery-ui/ui/datepicker.js"></script>
+  <script type="text/javascript" src="/scripts/controls.js"></script>
 </body>
 </html>

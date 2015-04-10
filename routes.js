@@ -20,7 +20,10 @@ module.exports = function(app, emailProvider) {
       description: '',
       nav: setNav(null, 'reservation'),
       disableReservationMenu: true,
-      reservation: reservation
+      reservation: reservation,
+      partials: {
+        stateListPartial: 'state-list-partial'
+      }
     });
   }
 
@@ -71,10 +74,10 @@ module.exports = function(app, emailProvider) {
 
   app.post('/contact', function(req, res) {
     var contactMessage = req.body;
-    var email = new emailProvider.Email();
     var message = '<p>Phone Number: ' + contactMessage.phone + '</p>';
     message += contactMessage.message;
 
+    var email = new emailProvider.Email();
     email.addTo(process.env.CONTACT_EMAIL);
     email.setFrom(contactMessage.email);
     email.setSubject('Message from dogchicago.com (' + contactMessage.name + ')');
@@ -142,7 +145,47 @@ module.exports = function(app, emailProvider) {
   });
 
   app.post('/reservation/new', function(req, res) {
-    throw new Error('Not implemented yet.');
+    var reservation = req.body;
+    var traits = '';
+    if(reservation.isShy) { traits += 'Shy '; }
+    if(reservation.isNervous) { traits += 'Nervous '; }
+    if(reservation.isSocial) { traits += 'Social '; }
+    if(reservation.isDogAggressive) { traits += 'Dog Aggressive '; }
+    if(reservation.isPeopleAggressive) { traits += 'People Aggressive '; }
+    if(reservation.isOther) { traits += 'Other'; }
+
+    var message = '<p><label style="font-weight: bold;">Drop Off</label><br>' + reservation.dropOff + '</p>' +
+    '<p><label style=\'font-weight: bold;\'>Pick Up</label><br>' + reservation.pickUp + '</p>' +
+    '<p><label style=\'font-weight: bold;\'>Owner\'s Name</label><br>' + reservation.ownerFirstName + ' ' + reservation.ownerLastName + '</p>' +
+    '<p><label style=\'font-weight: bold;\'>Pet\'s Name</label><br>' + reservation.petName + '</p>' +
+    '<p><label style=\'font-weight: bold;\'>Address</label><br>' + reservation.street1 + '<br>' + reservation.street2 + '<br>' + reservation.city + '<br>' + reservation.state + '<br>' + reservation.zipcode + '</p>' +
+    '<p><label style=\'font-weight: bold;\'>Email Address</label><br>' + reservation.email + '</p>' +
+    '<p><label style=\'font-weight: bold;\'>Phone Number</label><br>' + reservation.phone + '</p>' +
+    '<p><label style=\'font-weight: bold;\'>Alt. Phone Number</label><br>' + reservation.altPhone + '</p>' +
+    '<p><label style=\'font-weight: bold;\'>Room</label><br>' + reservation.suite + '</p>' +
+    '<p><label style=\'font-weight: bold;\'>Dog Breed</label><br>' + reservation.breed + '</p>' +
+    '<p><label style=\'font-weight: bold;\'>Dog Age</label><br>' + reservation.petBirthdate + '</p>' +
+    '<p><label style=\'font-weight: bold;\'>Spay / Neuter Status</label><br>' + reservation.spayedStatus + '</p>' +
+    '<p><label style=\'font-weight: bold;\'>Weight</label><br>' + reservation.weight + '</p>' +
+    '<p><label style=\'font-weight: bold;\'>Color</label><br>' + reservation.color + '</p>' +
+    '<p><label style=\'font-weight: bold;\'>Room</label><br>' + reservation.suite + '</p>' +
+    '<p><label style=\'font-weight: bold;\'>Personality</label><br>' + traits + '</p>' +
+    '<p><label style=\'font-weight: bold;\'>Medical Notes</label><br>' + reservation.medicalNotes + '</p>' +
+    '<p><label style=\'font-weight: bold;\'>Vet / Clinic</label><br>' + reservation.vetName + '</p>' +
+    '<p><label style=\'font-weight: bold;\'>Vet Phone Number</label><br>' + reservation.vetPhone + '</p>' +
+    '<p><label style=\'font-weight: bold;\'>Emergency Contact</label><br>' + reservation.emergencyContactName + '</p>' +
+    '<p><label style=\'font-weight: bold;\'>Emergency Phone Number</label><br>' + reservation.emergencyPhone + '</p>' +
+    '<p><label style=\'font-weight: bold;\'>Notes / Comments</label><br>' + reservation.notes + '</p>';
+
+    var email = new emailProvider.Email();
+    email.addTo(process.env.CONTACT_EMAIL);
+    email.setFrom(reservation.email);
+    email.setSubject('Reservation from dogchicago.com (' + reservation.ownerName + ')');
+    email.setHtml(message);
+
+    emailProvider.send(email);
+
+    res.redirect('/reservation/confirmed');
   });
 
   app.get('/reservation/returning', function(req, res) {

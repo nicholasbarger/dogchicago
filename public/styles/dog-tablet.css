@@ -28,6 +28,21 @@ and (min-width : 768px) {
     width: inherit;
     display: inline;
   }
+  form .row .group {
+    margin-left: 0px;
+    margin-right: 0px;
+    width: 49%;
+  }
+  form .row .group:last-child {
+    margin-left: 2%;
+  }
+  form .row.percent-33 .group {
+    width: 32%;
+    margin-left: 0.5%;
+  }
+  form .row.percent-33 .group:first-child {
+    margin-left: 0px;
+  }
 
   .google-map {
     width: 100%;
@@ -75,6 +90,7 @@ and (min-width : 768px) {
     box-shadow: 5px 5px 5px #444;
     border-bottom-left-radius: 5px;
     border-bottom-right-radius: 5px;
+    z-index: 3;
   }
   .nav .menu button[type="submit"] {
     margin-top: 10px;
@@ -107,7 +123,7 @@ and (min-width : 768px) {
   }
 
   .price-table {
-    min-width: 400px;
+    min-width: 350px;
     width: inherit;
   }
 

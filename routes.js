@@ -16,8 +16,8 @@ module.exports = function(app, emailProvider) {
 
   function newReservation(res, reservation) {
     res.render('new-reservation.html', {
-      title: '',
-      description: '',
+      title: 'Dog Hotel and Daycare - New Guest Reservation',
+      description: 'Complete your dog daycare or boarding reservation online.',
       nav: setNav(null, 'reservation'),
       disableReservationMenu: true,
       reservation: reservation,
@@ -29,8 +29,8 @@ module.exports = function(app, emailProvider) {
 
   function returningReservation(res, reservation) {
     res.render('returning-reservation.html', {
-      title: '',
-      description: '',
+      title: 'Dog Hotel and Daycare - Returning Guest Reservation',
+      description: 'Returning guests of Dog Hotel and Daycare in Chicago, IL can quickly and easily complete their reservations online.',
       nav: setNav(null, 'reservation'),
       disableReservationMenu: true,
       reservation: reservation
@@ -40,23 +40,23 @@ module.exports = function(app, emailProvider) {
   app.get('/', function(req, res) {
     res.render('home.html', {
       title: 'Dog Hotel and Daycare - Dog Daycare Chicago, Dog Boarding Chicago',
-      description: 'Dog hotel and daycare offering boarding and daycare services on 1030 N Halsted Chicago, IL 60642 ' +
-      '24 hours a day'
+      description: 'Dog hotel and daycare, offering boarding and daycare services on 1030 N Halsted Chicago, IL 60642 ' +
+      '24 hours a day.'
     });
   });
 
   app.get('/about', function(req, res) {
     res.render('about.html', {
-      title: '',
-      description: '',
+      title: 'Dog Hotel and Daycare - Our Story',
+      description: 'Learn more about Dog Hotel and Daycare in Chicago, IL.',
       nav: setNav(null, 'about')
     });
   });
 
   app.get('/boarding', function(req, res) {
     res.render('boarding.html', {
-      title: '',
-      description: '',
+      title: 'Dog Hotel and Daycare - Dog Boarding',
+      description: 'Find out all about our dog boarding amenities and services in Chicago, IL.',
       nav: setNav(null, 'boarding'),
       partials: {
         healthPartial: 'health-partial'
@@ -66,8 +66,8 @@ module.exports = function(app, emailProvider) {
 
   app.get('/contact', function(req, res) {
     res.render('contact.html', {
-      title: '',
-      description: '',
+      title: 'Dog Hotel and Daycare - Contact Us',
+      description: 'Contact us for more information or to answer any questions you may have.  We\'re here to help you with your dog daycare and boarding needs.',
       nav: setNav(null, 'contact')
     });
   });
@@ -90,8 +90,8 @@ module.exports = function(app, emailProvider) {
 
   app.get('/contact-sent', function(req, res) {
     res.render('contact-sent', {
-      title: '',
-      description: ''
+      title: 'Dog Hotel and Daycare - Contact Sent',
+      description: 'Thank you for contacting us, we will get back to you as soon as possible.'
     });
   });
 
@@ -107,8 +107,8 @@ module.exports = function(app, emailProvider) {
 
   app.get('/daycare', function(req, res) {
     res.render('daycare.html', {
-      title: '',
-      description: '',
+      title: 'Dog Hotel and Daycare - Dog Daycare',
+      description: 'Chicago is a busy city, while you\'re away at work, have your dog stay with us.',
       nav: setNav(null, 'daycare'),
       partials: {
         healthPartial: 'health-partial'
@@ -118,8 +118,8 @@ module.exports = function(app, emailProvider) {
 
   app.get('/health', function(req, res) {
     res.render('health.html', {
-      title: '',
-      description: '',
+      title: 'Dog Hotel and Daycare - Health Information',
+      description: 'Health and safety are incredibly important at Dog Hotel and Daycare Chicago.  Find out more.',
       nav: setNav(null, 'boarding')
     })
   });
@@ -133,8 +133,8 @@ module.exports = function(app, emailProvider) {
 
   app.get('/reservation/confirmed', function(req, res) {
     res.render('reservation-confirmed.html', {
-      title: '',
-      description: '',
+      title: 'Dog Hotel and Daycare - Reservation Confirmed',
+      description: 'Congratulations your dog hotel or daycare reservation has been confirmed.',
       nav: setNav(null, 'reservation'),
       disableReservationMenu: true
     });
@@ -180,7 +180,7 @@ module.exports = function(app, emailProvider) {
     var email = new emailProvider.Email();
     email.addTo(process.env.CONTACT_EMAIL);
     email.setFrom(reservation.email);
-    email.setSubject('Reservation from dogchicago.com (' + reservation.ownerName + ')');
+    email.setSubject('New reservation from dogchicago.com (' + reservation.ownerName + ')');
     email.setHtml(message);
 
     emailProvider.send(email);
@@ -193,28 +193,45 @@ module.exports = function(app, emailProvider) {
   });
 
   app.post('/reservation/returning', function(req, res) {
-    throw new Error('Not implemented yet.');
+    var reservation = req.body;
+
+    var message = '<p><label style="font-weight: bold;">Drop Off</label><br>' + reservation.dropOff + '</p>' +
+      '<p><label style=\'font-weight: bold;\'>Pick Up</label><br>' + reservation.pickUp + '</p>' +
+      '<p><label style=\'font-weight: bold;\'>Pet\'s Name</label><br>' + reservation.petName + '</p>' +
+      '<p><label style=\'font-weight: bold;\'>Email Address</label><br>' + reservation.email + '</p>' +
+      '<p><label style=\'font-weight: bold;\'>Room</label><br>' + reservation.suite + '</p>' +
+      '<p><label style=\'font-weight: bold;\'>Notes / Comments</label><br>' + reservation.notes + '</p>';
+
+    var email = new emailProvider.Email();
+    email.addTo(process.env.CONTACT_EMAIL);
+    email.setFrom(reservation.email);
+    email.setSubject('Returning reservation from dogchicago.com (' + reservation.ownerName + ')');
+    email.setHtml(message);
+
+    emailProvider.send(email);
+
+    res.redirect('/reservation/confirmed');
   });
 
   app.get('/spa', function(req, res) {
     res.render('spa.html', {
-      title: '',
-      description: '',
+      title: 'Dog Hotel and Daycare - Dog Spa Services',
+      description: 'At Dog Hotel and Daycare in Chicago, we pamper your pup with wonderful spa services that even their owners would be jealous of.',
       nav: setNav(null, 'spa')
     });
   });
 
   app.get('/stylesheet', function(req, res) {
     res.render('stylesheet.html', {
-      title: 'Stylesheet for Dog Hotel and Daycare',
+      title: 'Dog Hotel and Daycare - Stylesheet',
       description: 'This is just used for development and viewing changes to the styles.'
     })
   });
 
   app.get('/terms', function(req, res) {
     res.render('terms.html', {
-      title: 'Dog Hotel and Daycare Terms and Conditions',
-      description: ''
+      title: 'Dog Hotel and Daycare - Terms and Conditions',
+      description: 'The terms and conditions as well as some policies for daycare and boarding.'
     });
   });
 };

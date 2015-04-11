@@ -28,7 +28,7 @@
   <header>
     <h1>{{ title }}</h1>
 
-    <section class="header-info">
+    <div class="header-info">
       <div class="social-links">
         <a href="https://www.facebook.com" target="_blank"><i class="fa fa-facebook-official"></i></a>
         <a href="https://www.instagram.com" target="_blank"><i class="fa fa-instagram"></i></a>
@@ -36,10 +36,10 @@
       </div>
 
       <span>(312) 895-3777 - Open <strong>24/7/365</strong></span>
-    </section>
+    </div>
 
     <nav class="nav">
-      <a href="/" class="brand"><img src="/media/logo.png"></a>
+      <a href="/" class="brand"><img src="/media/logo.png" alt="Dog Hotel and Daycare" title="Dog Hotel and Daycare"></a>
 
       <ul>
         <li {{#nav.daycare}}class="active"{{/nav.daycare}}><a href="/daycare">Daycare</a></li>
@@ -89,7 +89,7 @@
     </nav>
   </header>
 
-  <section>{{{ yield }}}</section>
+  {{{ yield }}}
 
   <footer>
     <nav>

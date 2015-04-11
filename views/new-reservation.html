@@ -8,7 +8,7 @@
       <legend>Owner Information</legend>
 
       <div class="row">
-        <label class="required">Your Name</label>
+        <label for="ownerFirstName" class="required">Your Name</label>
         <div class="group">
           <input type="text" id="ownerFirstName" name="ownerFirstName" placeholder="first name" required>
         </div><div class="group">
@@ -17,7 +17,7 @@
       </div>
 
       <div class="row">
-        <label>Address</label>
+        <label for="street1">Address</label>
         <input type="text" id="street1" name="street1" placeholder="Street 1"><br>
         <input type="text" id="street2" name="street2" placeholder="Street 2"><br>
         <input type="text" id="city" name="city" placeholder="City"><br>
@@ -28,37 +28,37 @@
       </div>
 
       <div class="row">
-        <label class="required">Email Address</label>
+        <label for="email" class="required">Email Address</label>
         <input type="email" id="email" name="email" required>
       </div>
 
       <div class="row">
-        <label class="required">Phone Number</label>
+        <label for="phone" class="required">Phone Number</label>
         <input type="tel" id="phone" name="phone" required>
       </div>
 
       <div class="row">
-        <label>Alternate Phone Number</label>
+        <label for="altPhone">Alternate Phone Number</label>
         <input type="tel" id="altPhone" name="altPhone">
       </div>
 
       <div class="row">
-        <label class="required">Vet/Clinic</label>
+        <label for="vetName" class="required">Vet/Clinic</label>
         <input type="text" id="vetName" name="vetName" required>
       </div>
 
       <div class="row">
-        <label>Vet Phone Number</label>
+        <label for="vetPhone">Vet Phone Number</label>
         <input type="tel" id="vetPhone" name="vetPhone">
       </div>
 
       <div class="row">
-        <label class="required">Emergency Contact</label>
+        <label for="emergencyContactName" class="required">Emergency Contact</label>
         <input type="text" id="emergencyContactName" name="emergencyContactName" placeholder="Name" required>
       </div>
 
       <div class="row">
-        <label class="required">Emergency Phone Number</label>
+        <label for="emergencyPhone" class="required">Emergency Phone Number</label>
         <input type="tel" id="emergencyPhone" name="emergencyPhone" required>
       </div>
     </fieldset>
@@ -67,42 +67,30 @@
       <legend>Guest Information</legend>
 
       <div class="row">
-        <label class="required">Drop Off / Pick Up</label>
+        <label for="dropOff" class="required">Drop Off / Pick Up</label>
         <input type="datetime" id="dropOff" name="dropOff" placeholder="drop off" class="datepicker" required>
         <input type="datetime" id="pickUp" name="pickUp" placeholder="pick up" class="datepicker" required>
       </div>
 
       <div class="row">
-        <label class="required">Number of Guests</label>
+        <label for="numberOfGuests" class="required">Number of Guests</label>
         <input type="number" id="numberOfGuests" name="numberOfGuests" required>
       </div>
 
       <div class="row">
-        <label class="required">Pet's Name</label>
+        <label for="petName" class="required">Pet's Name</label>
         <input type="text" id="petName" name="petName" required>
       </div>
 
-      <div class="row percent-33 suites">
-        <label class="required">Room</label>
-        <div class="group">
-          <img src="/media/grand-suite.jpg">
-          <p><label class="radio"><input type="radio" name="suite" value="junior"> Junior Suite</label></p>
-        </div><div class="group">
-          <img src="/media/grand-suite.jpg">
-          <p><label class="radio"><input type="radio" name="suite" value="deluxe"> Deluxe Suite</label></p>
-        </div><div class="group">
-          <img src="/media/grand-suite.jpg">
-          <p><label class="radio"><input type="radio" name="suite" value="grand"> Grand Suite (includes suite web cam)</label></p>
-        </div>
-      </div>
+      {{> roomsPartial }}
 
       <div class="row">
-        <label class="required">Dog Breed</label>
+        <label for="breed" class="required">Dog Breed</label>
         <input type="text" id="breed" name="breed" required>
       </div>
 
       <div class="row">
-        <label>Dog Age (or birthdate)</label>
+        <label for="petBirthdate">Dog Age (or birthdate)</label>
         <input type="text" id="petBirthdate" name="petBirthdate" class="small">
       </div>
 
@@ -115,12 +103,12 @@
       </div>
 
       <div class="row">
-        <label>Weight</label>
+        <label for="weight">Weight</label>
         <input type="number" id="weight" name="weight">
       </div>
 
       <div class="row">
-        <label>Color</label>
+        <label for="color">Color</label>
         <input type="text" id="color" name="color">
       </div>
 
@@ -135,13 +123,13 @@
       </div>
 
       <div class="row">
-        <label>Does your dog have any allergy or medical conditions?</label>
+        <label for="medicalNotes">Does your dog have any allergy or medical conditions?</label>
         <textarea id="medicalNotes" name="medicalNotes"></textarea>
       </div>
     </fieldset>
 
     <div class="row">
-      <label>Additional Notes or Comments</label>
+      <label for="notes">Additional Notes or Comments</label>
       <textarea id="notes" name="notes"></textarea>
     </div>
 

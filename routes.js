@@ -22,6 +22,7 @@ module.exports = function(app, emailProvider) {
       disableReservationMenu: true,
       reservation: reservation,
       partials: {
+        roomsPartial: 'rooms-partial',
         stateListPartial: 'state-list-partial'
       }
     });
@@ -33,7 +34,10 @@ module.exports = function(app, emailProvider) {
       description: 'Returning guests of Dog Hotel and Daycare in Chicago, IL can quickly and easily complete their reservations online.',
       nav: setNav(null, 'reservation'),
       disableReservationMenu: true,
-      reservation: reservation
+      reservation: reservation,
+      partials: {
+        roomsPartial: 'rooms-partial'
+      }
     });
   }
 

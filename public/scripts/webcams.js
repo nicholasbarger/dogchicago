@@ -9,8 +9,7 @@
 function unlock(camera) {
   var password = document.getElementById(camera + 'Password').value;
   setInterval(function() { refreshWebCams(camera, password) }, 2000);
-};
-
+}
 
 // call dom elements to refresh
 function refreshWebCams(camera, password) {

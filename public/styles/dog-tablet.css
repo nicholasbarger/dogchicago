@@ -69,9 +69,8 @@ and (min-width : 768px) {
 
   .nav {
     height: 69px;
-    padding-left: 30px;
     text-align: left;
-    width: 725px;
+    width: 750px;
     margin-left: auto;
     margin-right: auto;
   }
@@ -99,7 +98,7 @@ and (min-width : 768px) {
     position: absolute;
     top: 65px;
     padding: 0px;
-    margin-left: 30px;
+    margin-left: 15px;
   }
   .nav ul li {
     padding-left: 10px;

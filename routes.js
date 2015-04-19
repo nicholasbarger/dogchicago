@@ -120,6 +120,14 @@ module.exports = function(app, emailProvider) {
     });
   });
 
+  app.get('/faq', function(req, res) {
+    res.render('faq.html', {
+      title: 'Dog Hotel and Daycare - FAQ',
+      description: 'Get answers to your frequently asked questions from Dog Chicago.',
+      nav: setNav(null, 'faq')
+    });
+  });
+
   app.get('/health', function(req, res) {
     res.render('health.html', {
       title: 'Dog Hotel and Daycare - Health Information',

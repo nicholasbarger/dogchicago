@@ -10,9 +10,9 @@
       <div class="row">
         <label for="ownerFirstName" class="required">Your Name</label>
         <div class="group">
-          <input type="text" id="ownerFirstName" name="ownerFirstName" placeholder="first name" required>
+          <input type="text" id="ownerFirstName" name="ownerFirstName" placeholder="first name" required value="{{reservation.ownerFirstName}}">
         </div><div class="group">
-          <input type="text" id="ownerLastName" name="ownerLastName" placeholder="last name" required>
+          <input type="text" id="ownerLastName" name="ownerLastName" placeholder="last name" required value="{{reservation.ownerLastName}}">
         </div>
       </div>
 
@@ -53,13 +53,13 @@
       </div>
 
       <div class="row">
-        <label for="emergencyContactName" class="required">Emergency Contact</label>
-        <input type="text" id="emergencyContactName" name="emergencyContactName" placeholder="Name" required>
+        <label for="emergencyContactName">Emergency Contact</label>
+        <input type="text" id="emergencyContactName" name="emergencyContactName" placeholder="Name">
       </div>
 
       <div class="row">
-        <label for="emergencyPhone" class="required">Emergency Phone Number</label>
-        <input type="tel" id="emergencyPhone" name="emergencyPhone" required>
+        <label for="emergencyPhone">Emergency Phone Number</label>
+        <input type="tel" id="emergencyPhone" name="emergencyPhone">
       </div>
     </fieldset>
 
@@ -68,63 +68,72 @@
 
       <div class="row">
         <label for="dropOff" class="required">Drop Off / Pick Up</label>
-        <input type="datetime" id="dropOff" name="dropOff" placeholder="drop off" class="datepicker" required>
-        <input type="datetime" id="pickUp" name="pickUp" placeholder="pick up" class="datepicker" required>
+        <input type="datetime" id="dropOff" name="dropOff" placeholder="drop off" class="datepicker" required value="{{reservation.dropOff}}">
+        <input type="datetime" id="pickUp" name="pickUp" placeholder="pick up" class="datepicker" required value="{{reservation.pickUp}}">
       </div>
 
       <div class="row">
         <label for="numberOfGuests" class="required">Number of Guests</label>
-        <input type="number" id="numberOfGuests" name="numberOfGuests" required>
+        <input type="number" id="numberOfGuests" name="numberOfGuests" required ng-model="numberOfGuests">
       </div>
 
-      <div class="row">
-        <label for="petName" class="required">Pet's Name</label>
-        <input type="text" id="petName" name="petName" required>
-      </div>
+      <div ng-repeat="guest in guests">
 
-      {{> roomsPartial }}
+        <div class="row">
+          <label for="petName" class="required">Pet's Name</label>
+          <input type="text" id="petName" name="petName" required>
+        </div>
 
-      <div class="row">
-        <label for="breed" class="required">Dog Breed</label>
-        <input type="text" id="breed" name="breed" required>
-      </div>
+        {{> roomsPartial }}
+        <div class="row percent-33" style="margin-bottom: 15px;">
+          <div class="group">$50/night</div>
+          <div class="group">$75/night</div>
+          <div class="group">$100/night</div>
+        </div>
 
-      <div class="row">
-        <label for="petBirthdate">Dog Age (or birthdate)</label>
-        <input type="text" id="petBirthdate" name="petBirthdate" class="small">
-      </div>
+        <div class="row">
+          <label for="breed">Dog Breed</label>
+          <input type="text" id="breed" name="breed">
+        </div>
 
-      <div class="row">
-        <label>Spay/Neuter Status</label>
-        <label class="radio"><input type="radio" id="spayed" name="spayedStatus" value="spayed">Spayed</label>
-        <label class="radio"><input type="radio" id="neutered" name="spayedStatus" value="neutered">Neutered</label>
-        <label class="radio"><input type="radio" id="unalteredMale" name="spayedStatus" value="unaltered-male">Unaltered Male</label>
-        <label class="radio"><input type="radio" id="unalteredFemale" name="spayedStatus" value="unaltered-female">Unaltered Female</label>
-      </div>
+        <div class="row">
+          <label for="petBirthdate">Dog Age (or birthdate)</label>
+          <input type="text" id="petBirthdate" name="petBirthdate" class="small">
+        </div>
 
-      <div class="row">
-        <label for="weight">Weight</label>
-        <input type="number" id="weight" name="weight">
-      </div>
+        <div class="row">
+          <label>Spay/Neuter Status</label>
+          <label class="radio"><input type="radio" id="spayed" name="spayedStatus" value="spayed">Spayed</label>
+          <label class="radio"><input type="radio" id="neutered" name="spayedStatus" value="neutered">Neutered</label>
+          <label class="radio"><input type="radio" id="unalteredMale" name="spayedStatus" value="unaltered-male">Unaltered Male</label>
+          <label class="radio"><input type="radio" id="unalteredFemale" name="spayedStatus" value="unaltered-female">Unaltered Female</label>
+        </div>
 
-      <div class="row">
-        <label for="color">Color</label>
-        <input type="text" id="color" name="color">
-      </div>
+        <div class="row">
+          <label for="weight">Weight</label>
+          <input type="number" id="weight" name="weight">
+        </div>
 
-      <div class="row">
-        <label>Personality</label>
-        <label class="checkbox"><input type="checkbox" id="isShy" name="isShy">Shy</label>
-        <label class="checkbox"><input type="checkbox" id="isNervous" name="isNervous">Nervous</label>
-        <label class="checkbox"><input type="checkbox" id="isSocial" name="isSocial">Social</label>
-        <label class="checkbox"><input type="checkbox" id="isDogAggressive" name="isDogAggressive">Dog-Aggressive</label>
-        <label class="checkbox"><input type="checkbox" id="isPeopleAggressive" name="isPeopleAggressive">People-Aggressive</label>
-        <label class="checkbox"><input type="checkbox" id="isOther" name="isOther">Other</label>
-      </div>
+        <div class="row">
+          <label for="color">Color</label>
+          <input type="text" id="color" name="color">
+        </div>
 
-      <div class="row">
-        <label for="medicalNotes">Does your dog have any allergy or medical conditions?</label>
-        <textarea id="medicalNotes" name="medicalNotes"></textarea>
+        <div class="row">
+          <label>Personality</label>
+          <label class="checkbox"><input type="checkbox" id="isShy" name="isShy">Shy</label>
+          <label class="checkbox"><input type="checkbox" id="isNervous" name="isNervous">Nervous</label>
+          <label class="checkbox"><input type="checkbox" id="isSocial" name="isSocial">Social</label>
+          <label class="checkbox"><input type="checkbox" id="isDogAggressive" name="isDogAggressive">Dog-Aggressive</label>
+          <label class="checkbox"><input type="checkbox" id="isPeopleAggressive" name="isPeopleAggressive">People-Aggressive</label>
+          <label class="checkbox"><input type="checkbox" id="isOther" name="isOther">Other</label>
+        </div>
+
+        <div class="row">
+          <label for="medicalNotes">Does your dog have any allergy or medical conditions?</label>
+          <textarea id="medicalNotes" name="medicalNotes"></textarea>
+        </div>
+
       </div>
     </fieldset>
 
@@ -134,7 +143,7 @@
     </div>
 
     <div class="row">
-      <label class="checkbox required"><input type="checkbox" required>I agree to the <a href="/terms">terms of service</a></label>
+      <label class="checkbox required"><input type="checkbox" required>I agree to the <a href="/terms" target="_blank">terms of service</a></label>
     </div>
 
     <div class="row actions">

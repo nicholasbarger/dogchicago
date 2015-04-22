@@ -1,4 +1,4 @@
-<div class="content">
+<div class="content" ng-controller="newReservationController">
   <h2>New Guest Reservation</h2>
   <p>We can't wait to have you.  To confirm your reservation, please fill out the following information.</p>
   <p><a href="/reservation/returning">I am a returning guest setting up a reservation.</a></p>
@@ -150,4 +150,6 @@
       <button type="submit">Request Reservation</button>
     </div>
   </form>
+
+  <pre>Guests: <span ng-bind="guests"></span></pre>
 </div>

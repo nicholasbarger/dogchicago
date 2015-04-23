@@ -1,4 +1,4 @@
 // initialize javascript controls
-$(function() {
-  $('.datepicker').datepicker();
-});
+//$(function() {
+//  $('.datepicker').datepicker();
+//});

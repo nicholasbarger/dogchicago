@@ -301,6 +301,7 @@ hr {
   color: #fff;
   margin: 0px;
   padding: 10px;
+  font-size: 1.5em;
 }
 .price .amount {
   font-size: 5em;
@@ -385,6 +386,7 @@ hr {
 }
 .social-links a {
   color: #ccc;
+  text-decoration: none;
 }
 .social-links a:hover {
   color: #64948E;

@@ -68,8 +68,8 @@
 
       <div class="row">
         <label for="dropOff" class="required">Drop Off / Pick Up</label>
-        <input type="datetime" id="dropOff" name="dropOff" placeholder="drop off" class="datepicker" required value="{{reservation.dropOff}}">
-        <input type="datetime" id="pickUp" name="pickUp" placeholder="pick up" class="datepicker" required value="{{reservation.pickUp}}">
+        <input type="date" id="dropOff" name="dropOff" required value="{{reservation.dropOff}}">
+        <input type="date" id="pickUp" name="pickUp" required value="{{reservation.pickUp}}">
       </div>
 
       <div class="row">
@@ -150,6 +150,4 @@
       <button type="submit">Request Reservation</button>
     </div>
   </form>
-
-  <pre>Guests: <span ng-bind="guests"></span></pre>
 </div>

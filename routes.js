@@ -89,6 +89,7 @@ module.exports = function(app, emailProvider) {
     email.setHtml(message);
 
     emailProvider.send(email);
+    console.log('Contact form email was sent from' + contactMessage.email + '.');
 
     res.redirect('/contact-sent');
   });
@@ -160,36 +161,65 @@ module.exports = function(app, emailProvider) {
 
   app.post('/reservation/new', function(req, res) {
     var reservation = req.body;
-    var traits = '';
-    if(reservation.isShy) { traits += 'Shy '; }
-    if(reservation.isNervous) { traits += 'Nervous '; }
-    if(reservation.isSocial) { traits += 'Social '; }
-    if(reservation.isDogAggressive) { traits += 'Dog Aggressive '; }
-    if(reservation.isPeopleAggressive) { traits += 'People Aggressive '; }
-    if(reservation.isOther) { traits += 'Other'; }
+    console.log('New reservation requested');
+    console.log(reservation);
 
-    var message = '<p><label style="font-weight: bold;">Drop Off</label><br>' + reservation.dropOff + '</p>' +
+    var message = '<h1>New Reservation</h1><h2>Customer Info</h2>' +
+    '<p><label style="font-weight: bold;">Drop Off</label><br>' + reservation.dropOff + '</p>' +
     '<p><label style=\'font-weight: bold;\'>Pick Up</label><br>' + reservation.pickUp + '</p>' +
     '<p><label style=\'font-weight: bold;\'>Owner\'s Name</label><br>' + reservation.ownerFirstName + ' ' + reservation.ownerLastName + '</p>' +
-    '<p><label style=\'font-weight: bold;\'>Pet\'s Name</label><br>' + reservation.petName + '</p>' +
     '<p><label style=\'font-weight: bold;\'>Address</label><br>' + reservation.street1 + '<br>' + reservation.street2 + '<br>' + reservation.city + '<br>' + reservation.state + '<br>' + reservation.zipcode + '</p>' +
     '<p><label style=\'font-weight: bold;\'>Email Address</label><br>' + reservation.email + '</p>' +
     '<p><label style=\'font-weight: bold;\'>Phone Number</label><br>' + reservation.phone + '</p>' +
     '<p><label style=\'font-weight: bold;\'>Alt. Phone Number</label><br>' + reservation.altPhone + '</p>' +
-    '<p><label style=\'font-weight: bold;\'>Room</label><br>' + reservation.suite + '</p>' +
-    '<p><label style=\'font-weight: bold;\'>Dog Breed</label><br>' + reservation.breed + '</p>' +
-    '<p><label style=\'font-weight: bold;\'>Dog Age</label><br>' + reservation.petBirthdate + '</p>' +
-    '<p><label style=\'font-weight: bold;\'>Spay / Neuter Status</label><br>' + reservation.spayedStatus + '</p>' +
-    '<p><label style=\'font-weight: bold;\'>Weight</label><br>' + reservation.weight + '</p>' +
-    '<p><label style=\'font-weight: bold;\'>Color</label><br>' + reservation.color + '</p>' +
-    '<p><label style=\'font-weight: bold;\'>Room</label><br>' + reservation.suite + '</p>' +
-    '<p><label style=\'font-weight: bold;\'>Personality</label><br>' + traits + '</p>' +
-    '<p><label style=\'font-weight: bold;\'>Medical Notes</label><br>' + reservation.medicalNotes + '</p>' +
     '<p><label style=\'font-weight: bold;\'>Vet / Clinic</label><br>' + reservation.vetName + '</p>' +
     '<p><label style=\'font-weight: bold;\'>Vet Phone Number</label><br>' + reservation.vetPhone + '</p>' +
     '<p><label style=\'font-weight: bold;\'>Emergency Contact</label><br>' + reservation.emergencyContactName + '</p>' +
     '<p><label style=\'font-weight: bold;\'>Emergency Phone Number</label><br>' + reservation.emergencyPhone + '</p>' +
-    '<p><label style=\'font-weight: bold;\'>Notes / Comments</label><br>' + reservation.notes + '</p>';
+    '<p><label style=\'font-weight: bold;\'>Notes / Comments</label><br>' + reservation.notes + '</p><hr><h3>Guest Info</h3>';
+
+    if(reservation.numberOfGuests > 1) {
+      for(var i = 0; i < reservation.numberOfGuests; i++) {
+        var traitsMultiple = '';
+        if(reservation.isShy && reservation.isShy[i]) { traitsMultiple += 'Shy '; }
+        if(reservation.isNervous && reservation.isNervous[i]) { traitsMultiple += 'Nervous '; }
+        if(reservation.isSocial && reservation.isSocial[i]) { traitsMultiple += 'Social '; }
+        if(reservation.isDogAggressive && reservation.isDogAggressive[i]) { traitsMultiple += 'Dog Aggressive '; }
+        if(reservation.isPeopleAggressive && reservation.isPeopleAggressive[i]) { traitsMultiple += 'People Aggressive '; }
+        if(reservation.isOther && reservation.isOther[i]) { traitsMultiple += 'Other'; }
+
+        message += '<p><label style=\'font-weight: bold;\'>Pet\'s Name</label><br>' + reservation.petName[i] + '</p>' +
+        '<p><label style=\'font-weight: bold;\'>Room</label><br>' + reservation.suite[i] + '</p>' +
+        '<p><label style=\'font-weight: bold;\'>Dog Breed</label><br>' + reservation.breed[i] + '</p>' +
+        '<p><label style=\'font-weight: bold;\'>Dog Age</label><br>' + reservation.petBirthdate[i] + '</p>' +
+        '<p><label style=\'font-weight: bold;\'>Spay / Neuter Status</label><br>' + reservation.spayedStatus[i] + '</p>' +
+        '<p><label style=\'font-weight: bold;\'>Weight</label><br>' + reservation.weight[i] + '</p>' +
+        '<p><label style=\'font-weight: bold;\'>Color</label><br>' + reservation.color[i] + '</p>' +
+        '<p><label style=\'font-weight: bold;\'>Room</label><br>' + reservation.suite[i] + '</p>' +
+        '<p><label style=\'font-weight: bold;\'>Personality</label><br>' + traitsMultiple + '</p>' +
+        '<p><label style=\'font-weight: bold;\'>Medical Notes</label><br>' + reservation.medicalNotes[i] + '</p><hr>';
+      }
+    }
+    else {
+      var traitsSingle = '';
+      if(reservation.isShy) { traitsSingle += 'Shy '; }
+      if(reservation.isNervous) { traitsSingle += 'Nervous '; }
+      if(reservation.isSocial) { traitsSingle += 'Social '; }
+      if(reservation.isDogAggressive) { traitsSingle += 'Dog Aggressive '; }
+      if(reservation.isPeopleAggressive) { traitsSingle += 'People Aggressive '; }
+      if(reservation.isOther) { traitsSingle += 'Other'; }
+
+      message += '<p><label style=\'font-weight: bold;\'>Pet\'s Name</label><br>' + reservation.petName + '</p>' +
+      '<p><label style=\'font-weight: bold;\'>Room</label><br>' + reservation.suite + '</p>' +
+      '<p><label style=\'font-weight: bold;\'>Dog Breed</label><br>' + reservation.breed + '</p>' +
+      '<p><label style=\'font-weight: bold;\'>Dog Age</label><br>' + reservation.petBirthdate + '</p>' +
+      '<p><label style=\'font-weight: bold;\'>Spay / Neuter Status</label><br>' + reservation.spayedStatus + '</p>' +
+      '<p><label style=\'font-weight: bold;\'>Weight</label><br>' + reservation.weight + '</p>' +
+      '<p><label style=\'font-weight: bold;\'>Color</label><br>' + reservation.color + '</p>' +
+      '<p><label style=\'font-weight: bold;\'>Room</label><br>' + reservation.suite + '</p>' +
+      '<p><label style=\'font-weight: bold;\'>Personality</label><br>' + traits + '</p>' +
+      '<p><label style=\'font-weight: bold;\'>Medical Notes</label><br>' + reservation.medicalNotes + '</p>';
+    }
 
     var email = new emailProvider.Email();
     email.addTo(process.env.CONTACT_EMAIL);
@@ -198,6 +228,7 @@ module.exports = function(app, emailProvider) {
     email.setHtml(message);
 
     emailProvider.send(email);
+    console.log('Email notification sent');
 
     res.redirect('/reservation/confirmed');
   });
@@ -208,13 +239,26 @@ module.exports = function(app, emailProvider) {
 
   app.post('/reservation/returning', function(req, res) {
     var reservation = req.body;
+    console.log('Returning reservation requested');
+    console.log(reservation);
 
-    var message = '<p><label style="font-weight: bold;">Drop Off</label><br>' + reservation.dropOff + '</p>' +
+    var message = '<h1>Customer Info</h1>' +
+      '<p><label style="font-weight: bold;">Drop Off</label><br>' + reservation.dropOff + '</p>' +
       '<p><label style=\'font-weight: bold;\'>Pick Up</label><br>' + reservation.pickUp + '</p>' +
-      '<p><label style=\'font-weight: bold;\'>Pet\'s Name</label><br>' + reservation.petName + '</p>' +
       '<p><label style=\'font-weight: bold;\'>Email Address</label><br>' + reservation.email + '</p>' +
-      '<p><label style=\'font-weight: bold;\'>Room</label><br>' + reservation.suite + '</p>' +
-      '<p><label style=\'font-weight: bold;\'>Notes / Comments</label><br>' + reservation.notes + '</p>';
+      '<p><label style=\'font-weight: bold;\'>Notes / Comments</label><br>' + reservation.notes + '</p><hr><h2>Guest Info</h2>';
+
+    if(reservation.numberOfGuests > 1) {
+      for(var i = 0; i < reservation.numberOfGuests; i++) {
+        message += '<p><label style=\'font-weight: bold;\'>Pet\'s Name</label><br>' + reservation.petName[i] + '</p>' +
+        '<p><label style=\'font-weight: bold;\'>Room</label><br>' + reservation.suite[i] + '</p><hr>';
+      }
+    }
+    else {
+      message += '<p><label style=\'font-weight: bold;\'>Pet\'s Name</label><br>' + reservation.petName + '</p>' +
+      '<p><label style=\'font-weight: bold;\'>Room</label><br>' + reservation.suite + '</p>';
+    }
+
 
     var email = new emailProvider.Email();
     email.addTo(process.env.CONTACT_EMAIL);
@@ -223,6 +267,7 @@ module.exports = function(app, emailProvider) {
     email.setHtml(message);
 
     emailProvider.send(email);
+    //console.log('Email notification sent');
 
     res.redirect('/reservation/confirmed');
   });

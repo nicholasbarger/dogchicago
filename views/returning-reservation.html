@@ -1,4 +1,4 @@
-<section class="content">
+<section class="content" ng-controller="returningReservationController">
   <h2>Returning Guest Reservation</h2>
   <form method="post" action="/reservation/returning">
     <div class="row">
@@ -14,15 +14,19 @@
 
     <div class="row">
       <label for="numberOfGuests" class="required">Number of Guests</label>
-      <input type="number" id="numberOfGuests" name="numberOfGuests" required>
+      <input type="number" id="numberOfGuests" name="numberOfGuests" required ng-model="numberOfGuests">
     </div>
 
-    <div class="row">
-      <label for="petName" class="required">Pet's Name</label>
-      <input type="text" id="petName" name="petName" required>
-    </div>
+    <div ng-repeat="guest in guests">
 
-    {{> roomsPartial }}
+      <div class="row">
+        <label for="petName" class="required">Pet's Name</label>
+        <input type="text" id="petName" name="petName" required>
+      </div>
+
+      {{> roomsPartial }}
+
+    </div>
 
     <div class="row">
       <label for="notes">Additional Notes or Comments</label>

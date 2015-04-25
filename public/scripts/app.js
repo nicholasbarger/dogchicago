@@ -18,3 +18,21 @@ dogchicago.controller('newReservationController', ['$scope', function($scope) {
     }
   });
 }]);
+
+dogchicago.controller('returningReservationController', ['$scope', function($scope) {
+  $scope.numberOfGuests = 1;
+  $scope.guests = [];
+
+  $scope.$watch('numberOfGuests', function(newValue, oldValue) {
+    if(newValue < oldValue) {
+      while(newValue < $scope.guests.length) {
+        $scope.guests.pop();
+      }
+    }
+    else {
+      while(newValue > $scope.guests.length) {
+        $scope.guests.push({})
+      }
+    }
+  });
+}]);

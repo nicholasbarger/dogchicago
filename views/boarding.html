@@ -13,10 +13,10 @@
 
   <div class="row percent-33 suites center">
     <div class="group">
-      <img src="/media/grand-suite.jpg" alt="Junior Suite" title="Junior Suite">
+      <img src="/media/junior-suite.jpg" alt="Junior Suite" title="Junior Suite">
       <p>Junior Suite</p>
     </div><div class="group">
-      <img src="/media/grand-suite.jpg" alt="Deluxe Suite" title="Deluxe Suite">
+      <img src="/media/deluxe-suite.jpg" alt="Deluxe Suite" title="Deluxe Suite">
       <p>Deluxe Suite</p>
     </div><div class="group">
       <img src="/media/grand-suite.jpg" alt="Grand Suite" title="Grand Suite">
@@ -41,7 +41,6 @@
     </div><div class="group">
       <ul class="fa-ul">
         <li><i class="fa-li fa fa-asterisk"></i> Guest report card with each stay</li>
-        <li><i class="fa-li fa fa-asterisk"></i> Complimentary departure bath for pet guests staying seven (7) nights or longer.</li>
         <li><i class="fa-li fa fa-asterisk"></i> Around-the-clock access to veterinary care if needed</li>
         <li><i class="fa-li fa fa-asterisk"></i> Webcams are available round-the-clock</li>
         <li><i class="fa-li fa fa-asterisk"></i> Treat your pet to amenities such as turn-down service, one-on-one play time, belly-rubs, massage, and spa treatments</li>
@@ -118,37 +117,5 @@
 <section class="content">
   <h3>We Know You Miss Them</h3>
   <p>Current customers can unlock our Boarding Webcams to check in on their little guy.</p>
-  <div class="row webcams">
-    <div class="group">
-      <img src="http://69.38.192.54:88/cgi-bin/CGIProxy.fcgi?cmd=snapPicture2&usr=grand1&t=1429412693" id="cam1">
-      <h4>Grand Suite 1</h4>
-      <p>Enter password to unlock:</p>
-      <input type="password" id="cam1Password" name="cam1Password" placeholder="password">
-      <button type="button" class="small" onclick="unlock('cam1');">Unlock</button>
-    </div><div class="group">
-      <img src="http://69.38.192.54:86/cgi-bin/CGIProxy.fcgi?cmd=snapPicture2&usr=grand2&t=1429412806" id="cam2">
-      <h4>Grand Suite 2</h4>
-      <p>Enter password to unlock:</p>
-      <input type="password" id="cam2Password" name="cam2Password" placeholder="password">
-      <button type="button" class="small" onclick="unlock('cam2');">Unlock</button>
-    </div>
-  </div>
-
-  <hr>
-
-  <div class="row webcams">
-    <div class="group">
-      <img src="http://69.38.192.54:90/cgi-bin/CGIProxy.fcgi?cmd=snapPicture2&usr=grand3&t=1429412852" id="cam3">
-      <h4>Grand Suite 3</h4>
-      <p>Enter password to unlock:</p>
-      <input type="password" id="cam3Password" name="cam3Password" placeholder="password">
-      <button type="button" class="small" onclick="unlock('cam3');">Unlock</button>
-    </div><div class="group">
-      <img src="http://69.38.192.54:84/cgi-bin/CGIProxy.fcgi?cmd=snapPicture2&usr=grand4&t=1429412955" id="cam4">
-      <h4>Grand Suite 4</h4>
-      <p>Enter password to unlock:</p>
-      <input type="password" id="cam4Password" name="cam4Password" placeholder="password">
-      <button type="button" class="small" onclick="unlock('cam3');">Unlock</button>
-    </div>
-  </div>
+  {{> boardingCamsPartial }}
 </section>

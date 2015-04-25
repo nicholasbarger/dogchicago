@@ -152,7 +152,7 @@ form textarea {
   height: 100px;
 }
 form .row .group {
-  display: inline-table;
+  display: inline-block;
 }
 form .actions {
   margin-top: 15px;

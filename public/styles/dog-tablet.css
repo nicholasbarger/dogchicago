@@ -146,6 +146,13 @@ and (min-width : 768px) {
     margin-right: 0.5%;
   }
 
+  .suites img {
+    max-width: 250px;
+    width: 95%;
+    border: 10px solid #fff;
+    display: block;
+  }
+
   .teasers.percent-33 .group {
     width: 32.3333%;
     margin-left: 0.5%;

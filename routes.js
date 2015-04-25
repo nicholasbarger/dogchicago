@@ -63,6 +63,7 @@ module.exports = function(app, emailProvider) {
       description: 'Find out all about our dog boarding amenities and services in Chicago, IL.',
       nav: setNav(null, 'boarding'),
       partials: {
+        boardingCamsPartial: 'boarding-cams-partial',
         healthPartial: 'health-partial'
       }
     });
@@ -115,6 +116,7 @@ module.exports = function(app, emailProvider) {
       description: 'Chicago is a busy city, while you\'re away at work, have your dog stay with us.',
       nav: setNav(null, 'daycare'),
       partials: {
+        daycareCamsPartial: 'daycare-cams-partial',
         healthPartial: 'health-partial'
       }
     });
@@ -244,6 +246,17 @@ module.exports = function(app, emailProvider) {
     res.render('terms.html', {
       title: 'Dog Hotel and Daycare - Terms and Conditions',
       description: 'The terms and conditions as well as some policies for daycare and boarding.'
+    });
+  });
+
+  app.get('/webcams', function(req, res) {
+    res.render('webcams.html', {
+      title: 'Dog Hotel and Daycare - Webcams',
+      description: 'Available webcams at Dog Hotel and Daycare to view your pup while away.',
+      partials: {
+        boardingCamsPartial: 'boarding-cams-partial',
+        daycareCamsPartial: 'daycare-cams-partial'
+      }
     });
   });
 };

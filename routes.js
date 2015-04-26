@@ -267,7 +267,7 @@ module.exports = function(app, emailProvider) {
     email.setHtml(message);
 
     emailProvider.send(email);
-    //console.log('Email notification sent');
+    console.log('Email notification sent');
 
     res.redirect('/reservation/confirmed');
   });

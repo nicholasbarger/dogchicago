@@ -19,7 +19,7 @@ function refreshWebCams(camera, password) {
 // construct new img src and reload
 function updateImageSrc(id, password) {
   var target = document.getElementById(id);
-  var src = target.src;
+  var src = $(target).attr('data-src');
   var timeNumber = Date.now();
   var splitArray = src.split('&t=');
   if(splitArray.length === 1) {

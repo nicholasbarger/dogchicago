@@ -46,6 +46,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(favicon(__dirname +  '/public/favicons/favicon.ico'));
 
 // initialize routes for web
+var oldWebForRedirects = require('./routes-old.js')(app);
 var web = require('./routes.js')(app, emailProvider);
 
 app.use(function(req, res, next){

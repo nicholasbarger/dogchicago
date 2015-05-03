@@ -2,12 +2,30 @@
   <label class="required">Room</label>
   <div class="group">
     <img src="/media/junior-suite.jpg" alt="Junior Suite" title="Junior Suite">
-    <p><label class="radio"><input type="radio" name="suite" value="junior" required> Junior Suite - $50/night</label></p>
+    <p>
+      <label class="radio"><input type="radio" name="suite" value="junior" required> Junior Suite - $
+        <span ng-if="$index === 0">50/night</span>
+        <span ng-if="$index === 1">40/night</span>
+        <span ng-if="$index >= 2">Call</span>
+      </label>
+    </p>
   </div><div class="group">
     <img src="/media/deluxe-suite.jpg" alt="Deluxe Suite" title="Deluxe Suite">
-    <p><label class="radio"><input type="radio" name="suite" value="deluxe" required> Deluxe Suite - $75/night</label></p>
+    <p>
+      <label class="radio"><input type="radio" name="suite" value="deluxe" required> Deluxe Suite - $
+        <span ng-if="$index === 0">75/night</span>
+        <span ng-if="$index === 1">60/night</span>
+        <span ng-if="$index >= 2">Call</span>
+      </label>
+    </p>
   </div><div class="group">
     <img src="/media/grand-suite.jpg" alt="Grand Suite" title="Grand Suite">
-    <p><label class="radio"><input type="radio" name="suite" value="grand" required> Grand Suite (includes suite web cam) - $100/night</label></p>
+    <p>
+      <label class="radio"><input type="radio" name="suite" value="grand" required> Grand Suite (includes suite web cam) - $
+        <span ng-if="$index === 0">100/night</span>
+        <span ng-if="$index === 1">80/night</span>
+        <span ng-if="$index >= 2">Call</span>
+      </label>
+    </p>
   </div>
 </div>

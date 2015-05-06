@@ -67,9 +67,13 @@
       <legend>Guest Information</legend>
 
       <div class="row">
-        <label for="dropOff" class="required">Drop Off / Pick Up</label>
-        <input type="date" id="dropOff" name="dropOff" required value="{{reservation.dropOff}}">
-        <input type="date" id="pickUp" name="pickUp" required value="{{reservation.pickUp}}">
+        <div class="group">
+          <label for="dropOff" class="required">Drop Off</label>
+          <input type="text" id="dropOff" name="dropOff" class="datetimepicker" required value="{{reservation.dropOff}}">
+        </div><div class="group">
+          <label for="pickUp" class="required">Pick Up</label>
+          <input type="text" id="pickUp" name="pickUp" class="datetimepicker" required value="{{reservation.pickUp}}">
+        </div>
       </div>
 
       <div class="row">

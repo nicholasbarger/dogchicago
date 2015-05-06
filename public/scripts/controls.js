@@ -1,6 +1,6 @@
 // initialize javascript controls
 $(function() {
-  //$('.datepicker').datepicker();
+  $('.datetimepicker').datetimepicker();
   $('.carousel').slick({
     autoplay: true,
     autoplaySpeed: 3000,

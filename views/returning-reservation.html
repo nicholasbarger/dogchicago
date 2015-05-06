@@ -3,13 +3,17 @@
   <form method="post" action="/reservation/returning">
     <div class="row">
       <label for="email" class="required">Email address from past visit</label>
-      <input type="email" id="email" name="email">
+      <input type="email" id="email" name="email" required>
     </div>
 
     <div class="row">
-      <label for="dropOff" class="required">Drop Off / Pick Up</label>
-      <input type="date" id="dropOff" name="dropOff" class="datepicker" required>
-      <input type="date" id="pickUp" name="pickUp" class="datepicker" required>
+      <div class="group">
+        <label for="dropOff" class="required">Drop Off</label>
+        <input type="text" id="dropOff" name="dropOff" class="datetimepicker" required>
+      </div><div class="group">
+        <label for="pickUp" class="required">Pick Up</label>
+        <input type="text" id="pickUp" name="pickUp" class="datetimepicker" required>
+      </div>
     </div>
 
     <div class="row">

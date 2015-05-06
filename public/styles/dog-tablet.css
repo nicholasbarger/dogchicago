@@ -117,7 +117,7 @@ and (min-width : 768px) {
   .nav ul li.active a, .nav ul li:hover a {
     color: #fff;
   }
-  .nav ul li.active .menu, .nav ul li:last-child:hover .menu {
+  .nav ul li.active .menu, .nav ul li:last-child:hover .menu, .nav .xdsoft_datetimepicker:hover .menu {
     display: block;
   }
 

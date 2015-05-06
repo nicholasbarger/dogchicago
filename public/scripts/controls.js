@@ -3,8 +3,8 @@ $(function() {
   $('.datetimepicker').datetimepicker();
   $('.carousel').slick({
     autoplay: true,
-    autoplaySpeed: 3000,
+    autoplaySpeed: 2000,
     lazyLoad: 'ondemand',
-    speed: 700
+    speed: 500
   });
 });

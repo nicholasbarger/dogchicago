@@ -209,11 +209,11 @@ hr {
   width: 50%;
 }
 
-.intro-background {
-  z-index: 1;
-  width: 100%;
-  border-bottom: 2px solid #433C30;
-}
+/*.intro-background {*/
+  /*z-index: 1;*/
+  /*width: 100%;*/
+  /*border-bottom: 2px solid #433C30;*/
+/*}*/
 
 .alternate-section {
   text-align: center;

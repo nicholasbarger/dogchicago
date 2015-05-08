@@ -12,6 +12,7 @@ and (min-width : 768px) {
     max-height:350px;
     overflow: hidden;
     background: no-repeat center top fixed;
+    background-size: 100%;
   }
   .background-boarding {
     background-image: url('/media/boarding.jpg');

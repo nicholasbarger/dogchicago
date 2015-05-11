@@ -1,6 +1,10 @@
 // todo: make angular controller for reservations to repeat based on number of guests entered.
 var dogchicago = angular.module('dogchicago', []);
 
+dogchicago.controller('contactController', [function() {
+  $('#form1').validate();
+}]);
+
 dogchicago.controller('newReservationController', ['$scope', function($scope) {
   $scope.numberOfGuests = 1;
   $scope.guests = [];
@@ -17,6 +21,9 @@ dogchicago.controller('newReservationController', ['$scope', function($scope) {
       }
     }
   });
+
+  // form validation init
+  $('#form1').validate();
 }]);
 
 dogchicago.controller('returningReservationController', ['$scope', function($scope) {
@@ -35,4 +42,7 @@ dogchicago.controller('returningReservationController', ['$scope', function($sco
       }
     }
   });
+
+  // form validation init
+  $('#form1').validate();
 }]);

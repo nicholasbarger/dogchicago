@@ -1,30 +1,30 @@
 <iframe class="google-map" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/place?q=1030%20N%20Halsted%20St%2C%20Chicago%2C%20IL%2C%20United%20States&key=AIzaSyCr74rpn-ej3EB5etTyTH5dEtA2XDRFz2s"></iframe>
 
-<section class="content">
+<section class="content" ng-controller="contactController">
   <h2>Contact Us</h2>
   <p>We're here to help, email or call us 24 hours a day and we'll be happy to answer your questions as soon as possible.</p>
   <p>Don't forget, you can <a href="/reservation/new">setup a reservation online</a> so you can easily check one more thing off your to-do list today.</p>
 
   <div class="row">
     <div class="group">
-      <form method="post" action="/contact">
+      <form id="form1" method="post" action="/contact" novalidate>
         <div class="row">
-          <label class="required">Your Name</label>
+          <label for="name" class="required">Your Name</label>
           <input type="text" id="name" name="name" required>
         </div>
 
         <div class="row">
-          <label class="required">Your Email Address</label>
+          <label for="email" class="required">Your Email Address</label>
           <input type="email" id="email" name="email" required>
         </div>
 
         <div class="row">
-          <label class="required">Your Phone Number</label>
+          <label for="phone" class="required">Your Phone Number</label>
           <input type="tel" id="phone" name="phone" required>
         </div>
 
         <div class="row">
-          <label class="required">Message</label>
+          <label for="message" class="required">Message</label>
           <textarea id="message" name="message" required></textarea>
         </div>
 

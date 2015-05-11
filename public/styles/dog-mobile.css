@@ -141,6 +141,9 @@ form label.required:after {
 form label.checkbox.required {
   font-weight: bold;
 }
+form label.error {
+  display: none !important;
+}
 form input, form textarea, form select  {
   margin-bottom: 5px;
   padding: 7px;
@@ -148,6 +151,9 @@ form input, form textarea, form select  {
 form input[type='text'], form textarea, form input[type='email'] {
   width: 100%;
   box-sizing: border-box;
+}
+form input.error, form select.error, form textarea.error {
+  border: 1px solid red;
 }
 form input.small {
   width: 125px;

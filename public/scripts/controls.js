@@ -1,19 +1,13 @@
 // initialize javascript controls
 $(function() {
+  // set all datepickers
   $('.datetimepicker').datetimepicker();
 
+  // set carousel plugin
   $('.carousel').slick({
     autoplay: true,
-    autoplaySpeed: 2000,
+    autoplaySpeed: 3000,
     lazyLoad: 'ondemand',
     speed: 500
   });
-
-  $.validator.setDefaults({
-    submitHandler: function() {
-      console.log('form submitted');
-      form1.submit();
-    }
-  });
-  $('form').validate();
 });

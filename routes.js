@@ -29,6 +29,7 @@ module.exports = function(app, emailProvider) {
   }
 
   function returningReservation(res, reservation) {
+    console.log('returning');
     res.render('returning-reservation.html', {
       title: 'Dog Hotel and Daycare - Returning Guest Reservation',
       description: 'Returning guests of Dog Hotel and Daycare in Chicago, IL can quickly and easily complete their reservations online.',
@@ -103,7 +104,8 @@ module.exports = function(app, emailProvider) {
 
   app.post('/claim-reservation', function(req, res) {
     var reservation = req.body;
-    if(reservation.newGuest) {
+    var isNewGuest = (reservation.newGuest == 'true');
+    if(isNewGuest) {
       newReservation(res, reservation);
     }
     else {
@@ -245,6 +247,8 @@ module.exports = function(app, emailProvider) {
     var message = '<h1>Customer Info</h1>' +
       '<p><label style="font-weight: bold;">Drop Off</label><br>' + reservation.dropOff + '</p>' +
       '<p><label style=\'font-weight: bold;\'>Pick Up</label><br>' + reservation.pickUp + '</p>' +
+      '<p><label style=\'font-weight: bold;\'>Owner\'s Name</label><br>' + reservation.ownerFirstName + ' ' + reservation.ownerLastName + '</p>' +
+      '<p><label style=\'font-weight: bold;\'>Phone Number</label><br>' + reservation.phone + '</p>' +
       '<p><label style=\'font-weight: bold;\'>Email Address</label><br>' + reservation.email + '</p>' +
       '<p><label style=\'font-weight: bold;\'>Notes / Comments</label><br>' + reservation.notes + '</p><hr><h2>Guest Info</h2>';
 

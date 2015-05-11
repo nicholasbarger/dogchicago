@@ -10,7 +10,7 @@ and (min-width : 768px) {
     width: 100%;
     min-height:350px;
     overflow: hidden;
-    background: no-repeat center top fixed;
+    /*background: no-repeat center top fixed;*/
     background-size: 100%;
   }
   .background-boarding {

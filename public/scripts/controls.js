@@ -6,7 +6,7 @@ $(function() {
   // set carousel plugin
   $('.carousel').slick({
     autoplay: true,
-    autoplaySpeed: 3000,
+    autoplaySpeed: 4000,
     lazyLoad: 'ondemand',
     speed: 500
   });

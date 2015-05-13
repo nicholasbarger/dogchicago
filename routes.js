@@ -178,7 +178,8 @@ module.exports = function(app, emailProvider) {
     '<p><label style=\'font-weight: bold;\'>Vet Phone Number</label><br>' + reservation.vetPhone + '</p>' +
     '<p><label style=\'font-weight: bold;\'>Emergency Contact</label><br>' + reservation.emergencyContactName + '</p>' +
     '<p><label style=\'font-weight: bold;\'>Emergency Phone Number</label><br>' + reservation.emergencyPhone + '</p>' +
-    '<p><label style=\'font-weight: bold;\'>Notes / Comments</label><br>' + reservation.notes + '</p><hr><h3>Guest Info</h3>';
+    '<p><label style=\'font-weight: bold;\'>Notes / Comments</label><br>' + reservation.notes + '</p>' +
+    '<p><label style=\'font-weight: bold;\'>Hear about us?</label><br>' + reservation.marketing + '</p><hr><h3>Guest Info</h3>';
 
     if(reservation.numberOfGuests > 1) {
       for(var i = 0; i < reservation.numberOfGuests; i++) {

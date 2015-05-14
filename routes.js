@@ -220,7 +220,7 @@ module.exports = function(app, emailProvider) {
       '<p><label style=\'font-weight: bold;\'>Weight</label><br>' + reservation.weight + '</p>' +
       '<p><label style=\'font-weight: bold;\'>Color</label><br>' + reservation.color + '</p>' +
       '<p><label style=\'font-weight: bold;\'>Room</label><br>' + reservation.suite + '</p>' +
-      '<p><label style=\'font-weight: bold;\'>Personality</label><br>' + traits + '</p>' +
+      '<p><label style=\'font-weight: bold;\'>Personality</label><br>' + traitsSingle + '</p>' +
       '<p><label style=\'font-weight: bold;\'>Medical Notes</label><br>' + reservation.medicalNotes + '</p>';
     }
 

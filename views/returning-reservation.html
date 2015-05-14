@@ -22,10 +22,16 @@
     </div>
 
     <div class="row">
+      <label>Type of Reservation</label>
+      <p><label class="radio"><input type="radio" name="isBoarding" value="true" ng-model="isBoarding"> Boarding</label>
+        <label class="radio"><input type="radio" name="isBoarding" value="false" ng-model="isBoarding"> Daycare</label></p>
+    </div>
+
+    <div class="row">
       <div class="group">
         <label for="dropOff" class="required">Drop Off</label>
         <input type="text" id="dropOff" name="dropOff" class="datetimepicker" required>
-      </div><div class="group">
+      </div><div class="group" ng-show="isBoarding == 'true'">
         <label for="pickUp" class="required">Pick Up</label>
         <input type="text" id="pickUp" name="pickUp" class="datetimepicker" required>
       </div>
@@ -43,8 +49,9 @@
         <input type="text" id="petName" name="petName" required>
       </div>
 
-      {{> roomsPartial }}
-
+      <div ng-show="isBoarding == 'true'">
+        {{> roomsPartial }}
+      </div>
     </div>
 
     <div class="row">
@@ -53,7 +60,7 @@
     </div>
 
     <div class="row">
-      <label for="agreeTerms" class="checkbox required"><input type="checkbox" id="agreeTerms" name="agreeTerms" required>I agree to the <a href="/terms">terms of service</a></label>
+      <p><label for="agreeTerms" class="checkbox required"><input type="checkbox" id="agreeTerms" name="agreeTerms" required>I agree to the <a href="/terms">terms of service</a></label></p>
     </div>
 
     <div class="row">

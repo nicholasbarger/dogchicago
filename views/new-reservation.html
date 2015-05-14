@@ -67,14 +67,22 @@
       <legend>Guest Information</legend>
 
       <div class="row">
+        <label>Type of Reservation</label>
+        <p><label class="radio"><input type="radio" name="isBoarding" value="true" ng-model="isBoarding"> Boarding</label>
+        <label class="radio"><input type="radio" name="isBoarding" value="false" ng-model="isBoarding"> Daycare</label></p>
+      </div>
+
+      <div class="row">
         <div class="group">
           <label for="dropOff" class="required">Drop Off</label>
           <input type="text" id="dropOff" name="dropOff" class="datetimepicker" required value="{{reservation.dropOff}}">
-        </div><div class="group">
+        </div><div class="group" ng-show="isBoarding == 'true'">
           <label for="pickUp" class="required">Pick Up</label>
           <input type="text" id="pickUp" name="pickUp" class="datetimepicker" required value="{{reservation.pickUp}}">
         </div>
       </div>
+
+      <pre>{{ isBoarding }}</pre>
 
       <div class="row">
         <label for="numberOfGuests" class="required">Number of Guests</label>
@@ -88,7 +96,9 @@
           <input type="text" id="petName" name="petName" required>
         </div>
 
-        {{> roomsPartial }}
+        <div ng-show="isBoarding == 'true'">
+          {{> roomsPartial }}
+        </div>
 
         <div class="row">
           <label for="breed">Dog Breed</label>
@@ -144,11 +154,19 @@
 
     <div class="row">
       <label for="marketing">How did you hear about us?</label>
-      <input type="text" id="marketing" name="marketing">
+      <select id="marketing" name="marketing">
+        <option>Please Select</option>
+        <option value="Search Engine">Search Engine</option>
+        <option value="Yelp">Yelp</option>
+        <option value="Social Media">Social Media</option>
+        <option value="Word of Mouth">Word of Mouth</option>
+        <option value="Print">Print</option>
+        <option value="Other">Other</option>
+      </select>
     </div>
 
     <div class="row">
-      <label for="agreeTerms" class="checkbox required"><input id="agreeTerms" name="agreeTerms" type="checkbox" required>I agree to the <a href="/terms" target="_blank">terms of service</a></label>
+      <p><label for="agreeTerms" class="checkbox required"><input id="agreeTerms" name="agreeTerms" type="checkbox" required>I agree to the <a href="/terms" target="_blank">terms of service</a></label></p>
     </div>
 
     <div class="row actions">

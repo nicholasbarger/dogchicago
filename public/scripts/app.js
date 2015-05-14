@@ -8,6 +8,7 @@ dogchicago.controller('contactController', [function() {
 dogchicago.controller('newReservationController', ['$scope', function($scope) {
   $scope.numberOfGuests = 1;
   $scope.guests = [];
+  $scope.isBoarding = 'true';
 
   $scope.$watch('numberOfGuests', function(newValue, oldValue) {
     if(newValue < oldValue) {

@@ -10,10 +10,10 @@ and (min-width : 768px) {
     width: 100%;
     min-height:450px;
     overflow: hidden;
-    /*background: no-repeat center top fixed;*/
     background-position: top;
     background-repeat: no-repeat;
-    background-size: 100%;
+    background-size: cover;
+    /*background-size: 100%;*/
   }
   .background-boarding {
     background-image: url('/media/boarding-2.jpg');

@@ -151,6 +151,10 @@ and (min-width : 768px) {
     margin-right: 0.5%;
   }
 
+  .slick-slide img {
+    min-height: 300px;
+  }
+
   .suites img {
     max-width: 250px;
     width: 95%;

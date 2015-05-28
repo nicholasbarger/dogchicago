@@ -8,6 +8,6 @@ and (min-width : 1025px) {
   }
 
   .slick-slide img {
-    min-height: 450px;
+    min-height: 400px;
   }
 }

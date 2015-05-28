@@ -370,6 +370,10 @@ hr {
 .price-table tfoot {
 }
 
+.slick-slide img {
+  min-height: 300px;
+}
+
 .specials {
   position: absolute;
   right: 0px;

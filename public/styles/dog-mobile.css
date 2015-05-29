@@ -370,6 +370,10 @@ hr {
 .price-table tfoot {
 }
 
+.slick-slider {
+  margin-bottom: 0px;
+}
+
 .slick-slide img {
   height: 100px;
 }

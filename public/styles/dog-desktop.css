@@ -7,7 +7,7 @@ and (min-width : 1025px) {
     margin-left: 30px;
   }
 
-  .slick-slide img {
-    min-height: 400px;
+  .slick-slide .background {
+  	height: 500px;
   }
 }

@@ -277,6 +277,10 @@ module.exports = function(app, emailProvider) {
     res.redirect('/reservation/confirmed');
   });
 
+  app.get('/t/:id', function(req, res) {
+    res.render('redirect.html');
+  });
+
   app.get('/spa', function(req, res) {
     res.render('spa.html', {
       title: 'Dog Hotel and Daycare - Dog Spa Services',

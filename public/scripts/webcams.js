@@ -33,3 +33,17 @@ function updateImageSrc(id, password) {
   console.log(src);
   target.src = src;
 }
+
+// open webcam in new tab
+function enlargeWebcam(id, passwordId) {
+  var password = document.getElementById(passwordId).value;
+  if(password == '') {
+    alert('Please unlock using the proper password first.');
+    return;
+  }
+  var target = document.getElementById(id);
+  var src = $(target).attr('data-src');
+  src += '&pwd=' + password;
+
+  window.open('/view-webcam?img=' + src);
+}

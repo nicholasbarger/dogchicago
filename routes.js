@@ -303,6 +303,13 @@ module.exports = function(app, emailProvider) {
     });
   });
 
+  app.get('/view-webcam', function(req, res) {
+    res.render('view-webcam.html', {
+      title: 'Dog Hotel and Daycare - View Webcam',
+      description: 'View live feed from our doggie webcams.'
+    })
+  });
+
   app.get('/webcams', function(req, res) {
     res.render('webcams.html', {
       title: 'Dog Hotel and Daycare - Webcams',

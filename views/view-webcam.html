@@ -1,0 +1,17 @@
+<div style="text-align: center;">
+	<img id="webcam" title="Webcam">
+</div>
+
+<script type="text/javascript">
+	// set img
+	function refreshWebCams() {
+		var query = window.location.search.substring(5);
+		document.getElementById('webcam').src = query;
+	}
+
+	// run initial snapshot
+	refreshWebCams();
+
+	// schedule next refresh
+	setInterval(function() { refreshWebCams() }, 2000);
+</script>

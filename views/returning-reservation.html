@@ -52,6 +52,15 @@
       <div ng-show="isBoarding == 'true'">
         {{> roomsPartial }}
       </div>
+
+      <div class="row">
+          <label for="isRequestingBath" class="required">Should we include a bath?</label>
+          <select id="isRequestingBath" name="isRequestingBath" required>
+              <option value="">Please Select</option>
+              <option value="yes">Yes</option>
+              <option value="no">No</option>
+          </select>
+        </div>
     </div>
 
     <div class="row">

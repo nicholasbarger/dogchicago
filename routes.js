@@ -167,7 +167,7 @@ module.exports = function(app, emailProvider) {
     console.log(reservation);
 
     var message = '<h1>New Reservation</h1><h2>Customer Info</h2>' +
-    '<p><label style=\'font-weight: bold;\'>Owner\'s Name</label><br>' + reservation.ownerFirstName + ' ' + reservation.ownerLastName + '</p>';
+    '<p><label style=\'font-weight: bold;\'>Owner\'s Name</label><br>' + reservation.ownerFirstName + ' ' + reservation.ownerLastName + '</p>' + 
     '<p><label style="font-weight: bold;">Drop Off</label><br>' + reservation.dropOff + '</p>' +
     '<p><label style=\'font-weight: bold;\'>Pick Up</label><br>' + reservation.pickUp + '</p>' +
     '<p style="font-weight: bold;">' + reservation.isBoarding ? 'Boarding' : 'Daycare' + '</p>';
@@ -214,7 +214,7 @@ module.exports = function(app, emailProvider) {
         message += '<p><label style=\'font-weight: bold;\'>Room</label><br>' + reservation.suite + '</p>';
       }
       
-      '<p><label style=\'font-weight: bold;\'>Weight</label><br>' + reservation.weight + '</p>' +
+      message += '<p><label style=\'font-weight: bold;\'>Weight</label><br>' + reservation.weight + '</p>' +
       '<p><label style=\'font-weight: bold;\'>Spay / Neuter Status</label><br>' + reservation.spayedStatus + '</p>' +
       '<p><label style=\'font-weight: bold;\'>Dog Age</label><br>' + reservation.petBirthdate + '</p>' +
       '<p><label style=\'font-weight: bold;\'>Color</label><br>' + reservation.color + '</p>' +
@@ -232,12 +232,12 @@ module.exports = function(app, emailProvider) {
     '<p><label style=\'font-weight: bold;\'>Emergency Phone Number</label><br>' + reservation.emergencyPhone + '</p>' +
     '<p><label style=\'font-weight: bold;\'>Email Address</label><br>' + reservation.email + '</p>' +
     '<p><label style=\'font-weight: bold;\'>Notes / Comments</label><br>' + reservation.notes + '</p>' +
-    '<p><label style=\'font-weight: bold;\'>Hear about us?</label><br>' + reservation.marketing + '</p><hr><h3>Guest Info</h3>';
+    '<p><label style=\'font-weight: bold;\'>Hear about us?</label><br>' + reservation.marketing + '</p><hr>';
 
     var email = new emailProvider.Email();
     email.addTo(process.env.CONTACT_EMAIL);
     email.setFrom(reservation.email);
-    email.setSubject('New reservation from dogchicago.com (' + reservation.ownerName + ')');
+    email.setSubject('New reservation from dogchicago.com (' + reservation.ownerFirstName + ' ' + reservation.ownerLastName + ')');
     email.setHtml(message);
 
     emailProvider.send(email);
@@ -288,7 +288,7 @@ module.exports = function(app, emailProvider) {
     var email = new emailProvider.Email();
     email.addTo(process.env.CONTACT_EMAIL);
     email.setFrom(reservation.email);
-    email.setSubject('Returning reservation from dogchicago.com (' + reservation.ownerName + ')');
+    email.setSubject('Returning reservation from dogchicago.com (' + reservation.ownerFirstName + ' ' + reservation.ownerLastName + ')');
     email.setHtml(message);
 
     emailProvider.send(email);

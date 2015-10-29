@@ -81,11 +81,13 @@ module.exports = function(app, emailProvider) {
   app.post('/contact', function(req, res) {
     var contactMessage = req.body;
     var message = '<p>Phone Number: ' + contactMessage.phone + '</p>';
+    message += '<p>Email Address: ' + contactMessage.email + '</p>';
     message += contactMessage.message;
 
     var email = new emailProvider.Email();
     email.addTo(process.env.CONTACT_EMAIL);
-    email.setFrom(contactMessage.email);
+    // email.setFrom(contactMessage.email);
+    email.setFrom(process.env.CONTACT_EMAIL);
     email.setSubject('Message from dogchicago.com (' + contactMessage.name + ')');
     email.setHtml(message);
 
@@ -236,7 +238,8 @@ module.exports = function(app, emailProvider) {
 
     var email = new emailProvider.Email();
     email.addTo(process.env.CONTACT_EMAIL);
-    email.setFrom(reservation.email);
+    // email.setFrom(reservation.email);
+    email.setFrom(process.env.CONTACT_EMAIL);
     email.setSubject('New reservation from dogchicago.com (' + reservation.ownerFirstName + ' ' + reservation.ownerLastName + ')');
     email.setHtml(message);
 
@@ -287,7 +290,8 @@ module.exports = function(app, emailProvider) {
 
     var email = new emailProvider.Email();
     email.addTo(process.env.CONTACT_EMAIL);
-    email.setFrom(reservation.email);
+    // email.setFrom(reservation.email);
+    email.setFrom(process.env.CONTACT_EMAIL);
     email.setSubject('Returning reservation from dogchicago.com (' + reservation.ownerFirstName + ' ' + reservation.ownerLastName + ')');
     email.setHtml(message);
 

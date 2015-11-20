@@ -18,17 +18,8 @@ var emailProvider = require("sendgrid")(api_user, api_key);
 
 // start express
 var app = express();
-
-// redirect non-www to www for seo
-if(process.env.NODE_ENV === 'production') {
-  app.get('*', function(req, res, next) {
-    if (req.headers.host.slice(0, 3) != 'www') {
-      res.redirect('http://www.' + req.headers.host + req.url, 301);
-    } else {
-      next();
-    }
-  });
-}
+app.use(express.static(path.join(__dirname, 'public')));
+app.use(favicon(__dirname +  '/public/favicons/favicon.ico'));
 
 // view engine setup
 app.set('view engine', 'html');
@@ -43,8 +34,17 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(compress);
 app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public')));
-app.use(favicon(__dirname +  '/public/favicons/favicon.ico'));
+
+// redirect non-www to www for seo
+if(process.env.NODE_ENV === 'production') {
+  app.get('*', function(req, res, next) {
+    if (req.headers.host.slice(0, 3) != 'www') {
+      res.redirect('http://www.' + req.headers.host + req.url, 301);
+    } else {
+      next();
+    }
+  });
+}
 
 // initialize routes for web
 var oldWebForRedirects = require('./routes-old.js')(app);

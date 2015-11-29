@@ -1,0 +1,1 @@
+curl -w "@curl-timings.txt" -o /dev/null -s $1

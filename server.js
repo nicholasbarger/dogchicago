@@ -6,7 +6,6 @@ var bodyParser = require('body-parser');
 var cookieParser = require('cookie-parser');
 var express = require('express');
 var favicon = require('serve-favicon');
-// var logger = require('morgan');
 var path = require('path');
 var hoganExpress = require('hogan-express');
 var compress = require('compression')();
@@ -29,7 +28,6 @@ app.enable('view cache');
 app.engine('html', hoganExpress);
 
 // middleware
-// app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(compress);

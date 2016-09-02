@@ -221,11 +221,12 @@ module.exports = function(app, emailProvider) {
       '<p><label style=\'font-weight: bold;\'>Dog Age</label><br>' + reservation.petBirthdate + '</p>' +
       '<p><label style=\'font-weight: bold;\'>Color</label><br>' + reservation.color + '</p>' +
       '<p><label style=\'font-weight: bold;\'>Personality</label><br>' + traitsSingle + '</p>' +
-      '<p><label style=\'font-weight: bold;\'>Medical Notes</label><br>' + reservation.medicalNotes + '</p>'
+      '<p><label style=\'font-weight: bold;\'>Medical Notes</label><br>' + reservation.medicalNotes + '</p>' +
       '<p><label style=\'font-weight: bold;\'>Is Requesting Bath?</label><br>' + reservation.isRequestingBath + '</p>';
     }
 
     message += '<p><label style=\'font-weight: bold;\'>Vet / Clinic</label><br>' + reservation.vetName + '</p>' +
+    '<p><label style=\'font-weight: bold;\'>Vet Email Address</label><br>' + reservation.vetEmail + '</p>' +
     '<p><label style=\'font-weight: bold;\'>Vet Phone Number</label><br>' + reservation.vetPhone + '</p>' +
     '<p><label style=\'font-weight: bold;\'>Address</label><br>' + reservation.street1 + '<br>' + reservation.street2 + '<br>' + reservation.city + '<br>' + reservation.state + '<br>' + reservation.zipcode + '</p>' +
     '<p><label style=\'font-weight: bold;\'>Phone Number</label><br>' + reservation.phone + '</p>' +

@@ -81,6 +81,11 @@ button.small, input[type="button"].small, input[type="submit"].small, .button.sm
   background-position: left;
 }
 
+.container {
+    max-width: 1400px;
+    margin: auto;
+}
+
 .content {
   padding: 30px;
   text-align: center;

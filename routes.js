@@ -176,6 +176,8 @@ module.exports = function(app, emailProvider) {
 
     if(reservation.numberOfGuests > 1) {
       for(var i = 0; i < reservation.numberOfGuests; i++) {
+        message += '<p><label style=\'font-weight: bold;\'>Is Requesting Bath?</label><br>' + reservation.isRequestingBath[i] + '</p>';
+
         var traitsMultiple = '';
         if(reservation.isShy && reservation.isShy[i]) { traitsMultiple += 'Shy '; }
         if(reservation.isNervous && reservation.isNervous[i]) { traitsMultiple += 'Nervous '; }
@@ -197,10 +199,12 @@ module.exports = function(app, emailProvider) {
         '<p><label style=\'font-weight: bold;\'>Color</label><br>' + reservation.color[i] + '</p>' +
         '<p><label style=\'font-weight: bold;\'>Personality</label><br>' + traitsMultiple + '</p>' +
         '<p><label style=\'font-weight: bold;\'>Medical Notes</label><br>' + reservation.medicalNotes[i] + '</p>' +
-        '<p><label style=\'font-weight: bold;\'>Is Requesting Bath?</label><br>' + reservation.isRequestingBath[i] + '</p><hr>';
+        '<hr>';
       }
     }
     else {
+      message += '<p><label style=\'font-weight: bold;\'>Is Requesting Bath?</label><br>' + reservation.isRequestingBath + '</p>';
+
       var traitsSingle = '';
       if(reservation.isShy) { traitsSingle += 'Shy '; }
       if(reservation.isNervous) { traitsSingle += 'Nervous '; }
@@ -221,8 +225,7 @@ module.exports = function(app, emailProvider) {
       '<p><label style=\'font-weight: bold;\'>Dog Age</label><br>' + reservation.petBirthdate + '</p>' +
       '<p><label style=\'font-weight: bold;\'>Color</label><br>' + reservation.color + '</p>' +
       '<p><label style=\'font-weight: bold;\'>Personality</label><br>' + traitsSingle + '</p>' +
-      '<p><label style=\'font-weight: bold;\'>Medical Notes</label><br>' + reservation.medicalNotes + '</p>' +
-      '<p><label style=\'font-weight: bold;\'>Is Requesting Bath?</label><br>' + reservation.isRequestingBath + '</p>';
+      '<p><label style=\'font-weight: bold;\'>Medical Notes</label><br>' + reservation.medicalNotes + '</p>';
     }
 
     message += '<p><label style=\'font-weight: bold;\'>Vet / Clinic</label><br>' + reservation.vetName + '</p>' +
@@ -270,23 +273,23 @@ module.exports = function(app, emailProvider) {
 
     if(reservation.numberOfGuests > 1) {
       for(var i = 0; i < reservation.numberOfGuests; i++) {
-        message += '<p><label style=\'font-weight: bold;\'>Pet\'s Name</label><br>' + reservation.petName[i] + '</p>';
+        message += '<p><label style=\'font-weight: bold;\'>Is Requesting Bath?</label><br>' + reservation.isRequestingBath[i] + '</p>' +
+        '<p><label style=\'font-weight: bold;\'>Pet\'s Name</label><br>' + reservation.petName[i] + '</p>';
         
         if(reservation.isBoarding) {
           message += '<p><label style=\'font-weight: bold;\'>Room</label><br>' + reservation.suite[i] + '</p>';
         }
 
-        message += '<p><label style=\'font-weight: bold;\'>Is Requesting Bath?</label><br>' + reservation.isRequestingBath[i] + '</p><hr>';
+        message += '<hr>';
       }
     }
     else {
+      message += '<p><label style=\'font-weight: bold;\'>Is Requesting Bath?</label><br>' + reservation.isRequestingBath + '</p>';
       message += '<p><label style=\'font-weight: bold;\'>Pet\'s Name</label><br>' + reservation.petName + '</p>';
 
       if(reservation.isBoarding) {
         message += '<p><label style=\'font-weight: bold;\'>Room</label><br>' + reservation.suite + '</p>';
       }
-
-      message += '<p><label style=\'font-weight: bold;\'>Is Requesting Bath?</label><br>' + reservation.isRequestingBath + '</p>';
     }
 
     var email = new emailProvider.Email();

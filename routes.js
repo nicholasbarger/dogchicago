@@ -263,13 +263,10 @@ module.exports = function(app, emailProvider) {
     console.log(reservation);
 
     var message = '<h1>Customer Info</h1>' +
-      '<p style=\'font-weight: bold;\'>' + (reservation.isBoarding ? 'Boarding' : 'Daycare') + '</p>' +
+      '<p><label style=\'font-weight: bold;\'>Owner\'s Name</label><br>' + reservation.ownerFirstName + ' ' + reservation.ownerLastName + '</p>' +
       '<p><label style=\'font-weight: bold;\'>Drop Off</label><br>' + reservation.dropOff + '</p>' +
       '<p><label style=\'font-weight: bold;\'>Pick Up</label><br>' + reservation.pickUp + '</p>' +
-      '<p><label style=\'font-weight: bold;\'>Owner\'s Name</label><br>' + reservation.ownerFirstName + ' ' + reservation.ownerLastName + '</p>' +
-      '<p><label style=\'font-weight: bold;\'>Phone Number</label><br>' + reservation.phone + '</p>' +
-      '<p><label style=\'font-weight: bold;\'>Email Address</label><br>' + reservation.email + '</p>' +
-      '<p><label style=\'font-weight: bold;\'>Notes / Comments</label><br>' + reservation.notes + '</p><hr><h2>Guest Info</h2>';
+      '<p style=\'font-weight: bold;\'>' + (reservation.isBoarding ? 'Boarding' : 'Daycare') + '</p>';
 
     if(reservation.numberOfGuests > 1) {
       for(var i = 0; i < reservation.numberOfGuests; i++) {
@@ -291,6 +288,10 @@ module.exports = function(app, emailProvider) {
         message += '<p><label style=\'font-weight: bold;\'>Room</label><br>' + reservation.suite + '</p>';
       }
     }
+
+    message += '<p><label style=\'font-weight: bold;\'>Phone Number</label><br>' + reservation.phone + '</p>' +
+      '<p><label style=\'font-weight: bold;\'>Email Address</label><br>' + reservation.email + '</p>' +
+      '<p><label style=\'font-weight: bold;\'>Notes / Comments</label><br>' + reservation.notes + '</p><hr><h2>Guest Info</h2>';
 
     var email = new emailProvider.Email();
     email.addTo(process.env.CONTACT_EMAIL);

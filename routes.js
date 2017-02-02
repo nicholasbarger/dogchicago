@@ -143,6 +143,13 @@ module.exports = function(app, emailProvider) {
     })
   });
 
+  app.get('/pricing', function(req, res) {
+    res.render('pricing.html', {
+      title: 'Dog Hotel and Daycare - Price Menu',
+      description: 'Up-front pricing with no hidden fees for exception dog boarding and daycare.'
+    });
+  });
+
   app.get('/privacy', function(req, res) {
     res.render('privacy-policy.html', {
       title: 'Dog Hotel and Daycare Privacy Policy',

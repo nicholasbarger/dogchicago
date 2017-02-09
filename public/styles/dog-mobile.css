@@ -272,6 +272,10 @@ hr {
   height: 200px;
 }
 
+.important {
+    font-size: 15pt;
+}
+
 .mission h2 {
   font-size: 3.5em;
   margin-top: 10px;

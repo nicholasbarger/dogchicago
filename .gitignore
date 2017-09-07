@@ -7,3 +7,5 @@ tmp
 .DS_Store
 .idea
 .env
+newrelice_agent.log
+npm-debug.log

@@ -7,5 +7,6 @@ tmp
 .DS_Store
 .idea
 .env
-newrelice_agent.log
+newrelic_agent.log
 npm-debug.log
+.vscode/

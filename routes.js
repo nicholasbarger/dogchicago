@@ -184,6 +184,9 @@ module.exports = function(app, emailProvider) {
     if(reservation.numberOfGuests > 1) {
       for(var i = 0; i < reservation.numberOfGuests; i++) {
         message += '<p><label style=\'font-weight: bold;\'>Is Requesting Bath?</label><br>' + reservation.isRequestingBath[i] + '</p>';
+        if(reservation.isRequestingBath == 'yes') {
+          message += '<p><label style=\'font-weight: bold;\'>Bath Time</label><br>' + reservation.bathTime[i] + '</p>';
+        }
 
         var traitsMultiple = '';
         if(reservation.isShy && reservation.isShy[i]) { traitsMultiple += 'Shy '; }
@@ -211,6 +214,9 @@ module.exports = function(app, emailProvider) {
     }
     else {
       message += '<p><label style=\'font-weight: bold;\'>Is Requesting Bath?</label><br>' + reservation.isRequestingBath + '</p>';
+      if(reservation.isRequestingBath == 'yes') {
+        message += '<p><label style=\'font-weight: bold;\'>Bath Time</label><br>' + reservation.bathTime + '</p>';
+      }
 
       var traitsSingle = '';
       if(reservation.isShy) { traitsSingle += 'Shy '; }
@@ -277,8 +283,11 @@ module.exports = function(app, emailProvider) {
 
     if(reservation.numberOfGuests > 1) {
       for(var i = 0; i < reservation.numberOfGuests; i++) {
-        message += '<p><label style=\'font-weight: bold;\'>Is Requesting Bath?</label><br>' + reservation.isRequestingBath[i] + '</p>' +
-        '<p><label style=\'font-weight: bold;\'>Pet\'s Name</label><br>' + reservation.petName[i] + '</p>';
+        message += '<p><label style=\'font-weight: bold;\'>Is Requesting Bath?</label><br>' + reservation.isRequestingBath[i] + '</p>';
+        if(reservation.isRequestingBath == 'yes') {
+          message += '<p><label style=\'font-weight: bold;\'>Bath Time</label><br>' + reservation.bathTime[i] + '</p>';
+        }
+        message += '<p><label style=\'font-weight: bold;\'>Pet\'s Name</label><br>' + reservation.petName[i] + '</p>';
         
         if(reservation.isBoarding) {
           message += '<p><label style=\'font-weight: bold;\'>Room</label><br>' + reservation.suite[i] + '</p>';
@@ -289,6 +298,9 @@ module.exports = function(app, emailProvider) {
     }
     else {
       message += '<p><label style=\'font-weight: bold;\'>Is Requesting Bath?</label><br>' + reservation.isRequestingBath + '</p>';
+      if(reservation.isRequestingBath == 'yes') {
+        message += '<p><label style=\'font-weight: bold;\'>Bath Time</label><br>' + reservation.bathTime + '</p>';
+      }
       message += '<p><label style=\'font-weight: bold;\'>Pet\'s Name</label><br>' + reservation.petName + '</p>';
 
       if(reservation.isBoarding) {

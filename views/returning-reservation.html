@@ -54,14 +54,14 @@
       </div>
 
       <div class="row">
-          <label for="isRequestingBath" class="required">Should we include a bath?</label>
-          <select id="isRequestingBath" name="isRequestingBath" required>
-              <option value="">Please Select</option>
-              <option value="yes">Yes</option>
-              <option value="no">No</option>
-          </select>
-        </div>
-    </div>
+        <label for="isRequestingBath" class="required">Should we include a bath?</label>
+        <select id="isRequestingBath" name="isRequestingBath" ng-model="isRequestingBath" required>
+            <option value="">Please Select</option>
+            <option value="yes">Yes</option>
+            <option value="no">No</option>
+        </select>
+        <input type="text" id="bathTime" name="bathTime" class="timepicker" required value="{{reservation.bathTime}}" ng-show="isRequestingBath == 'yes'" style="width: 100px;" placeholder="Select Time">
+      </div>
 
     <div class="row">
       <label for="notes">Additional Notes or Comments</label>

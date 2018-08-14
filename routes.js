@@ -91,9 +91,17 @@ module.exports = function(app, emailProvider) {
     email.setSubject('Message from dogchicago.com (' + contactMessage.name + ')');
     email.setHtml(message);
 
-    emailProvider.send(email);
-    console.log('Contact form email was sent from' + contactMessage.email + '.');
-
+    // add logic to not send information if the email address is from russia
+    // this is due to a lot of spam from russia that Bridget reported
+    console.log(contactMessage.email.indexOf('.ru'));
+    if (contactMessage.email.indexOf('.ru') === -1) {
+      emailProvider.send(email);
+      console.log('Contact form email was sent from ' + contactMessage.email + '.');
+    }
+    else {
+      console.log('Contact form email was NOT sent because we assumed it was SPAM: ' + contactMessage.email);
+    }
+    
     res.redirect('/contact-sent');
   });
 

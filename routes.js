@@ -86,8 +86,8 @@ module.exports = function(app, emailProvider) {
 
     var email = new emailProvider.Email();
     email.addTo(process.env.CONTACT_EMAIL);
-    // email.setFrom(contactMessage.email);
-    email.setFrom(process.env.CONTACT_EMAIL);
+    email.setFrom(contactMessage.email);
+    // email.setFrom(process.env.CONTACT_EMAIL);
     email.setSubject('Message from dogchicago.com (' + contactMessage.name + ')');
     email.setHtml(message);
 

@@ -217,6 +217,8 @@ module.exports = function(app, emailProvider) {
         '<p><label style=\'font-weight: bold;\'>Color</label><br>' + reservation.color[i] + '</p>' +
         '<p><label style=\'font-weight: bold;\'>Personality</label><br>' + traitsMultiple + '</p>' +
         '<p><label style=\'font-weight: bold;\'>Medical Notes</label><br>' + reservation.medicalNotes[i] + '</p>' +
+        '<p><label style=\'font-weight: bold;\'>Medicine Instructions</label><br>' + reservation.medicineInstructions[i] + '</p>' +
+        '<p><label style=\'font-weight: bold;\'>Food Instructions</label><br>' + reservation.foodInstructions[i] + '</p>' +
         '<hr>';
       }
     }
@@ -246,7 +248,9 @@ module.exports = function(app, emailProvider) {
       '<p><label style=\'font-weight: bold;\'>Dog Age</label><br>' + reservation.petBirthdate + '</p>' +
       '<p><label style=\'font-weight: bold;\'>Color</label><br>' + reservation.color + '</p>' +
       '<p><label style=\'font-weight: bold;\'>Personality</label><br>' + traitsSingle + '</p>' +
-      '<p><label style=\'font-weight: bold;\'>Medical Notes</label><br>' + reservation.medicalNotes + '</p>';
+      '<p><label style=\'font-weight: bold;\'>Medical Notes</label><br>' + reservation.medicalNotes + '</p>' +
+      '<p><label style=\'font-weight: bold;\'>Medicine Instructions</label><br>' + reservation.medicineInstructions + '</p>' +
+      '<p><label style=\'font-weight: bold;\'>Food Instructions</label><br>' + reservation.foodInstructions + '</p>';
     }
 
     message += '<p><label style=\'font-weight: bold;\'>Vet / Clinic</label><br>' + reservation.vetName + '</p>' +

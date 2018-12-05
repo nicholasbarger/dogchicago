@@ -305,6 +305,14 @@ module.exports = function(app, emailProvider) {
           message += '<p><label style=\'font-weight: bold;\'>Room</label><br>' + reservation.suite[i] + '</p>';
         }
 
+        if(reservation.medicineInstructions) {
+          message += '<p><label style=\'font-weight: bold;\'>Medicine Instructions</label><br>' + reservation.medicineInstructions[i] + '</p>';
+        }
+        
+        if(reservation.foodInstructions) {
+          message += '<p><label style=\'font-weight: bold;\'>Food Instructions</label><br>' + reservation.foodInstructions[i] + '</p>';
+        }
+
         message += '<hr>';
       }
     }
@@ -317,6 +325,14 @@ module.exports = function(app, emailProvider) {
 
       if(reservation.isBoarding) {
         message += '<p><label style=\'font-weight: bold;\'>Room</label><br>' + reservation.suite + '</p>';
+      }
+      
+      if(reservation.medicineInstructions) {
+        message += '<p><label style=\'font-weight: bold;\'>Medicine Instructions</label><br>' + reservation.medicineInstructions + '</p>';
+      }
+      
+      if(reservation.foodInstructions) {
+        message += '<p><label style=\'font-weight: bold;\'>Food Instructions</label><br>' + reservation.foodInstructions + '</p>';
       }
     }
 

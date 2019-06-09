@@ -161,8 +161,15 @@ module.exports = function(app, emailProvider) {
   app.get('/privacy', function(req, res) {
     res.render('privacy-policy.html', {
       title: 'Dog Hotel and Daycare Privacy Policy',
-      description: ''
+      description: 'Our privacy policy.'
     });
+  });
+
+  app.get('/reservation', function(req, res) {
+    res.render('reservation.html', {
+      title: 'Dog Hotel and Daycare Reservation',
+      description: 'Complete your dog daycare or boarding reservation online.',
+    })
   });
 
   app.get('/reservation/confirmed', function(req, res) {
@@ -362,13 +369,6 @@ module.exports = function(app, emailProvider) {
       title: 'Dog Hotel and Daycare - Dog Spa Services',
       description: 'At Dog Hotel and Daycare in Chicago, we pamper your pup with wonderful spa services that even their owners would be jealous of.',
       nav: setNav(null, 'spa')
-    });
-  });
-
-  app.get('/stylesheet', function(req, res) {
-    res.render('stylesheet.html', {
-      title: 'Dog Hotel and Daycare - Stylesheet',
-      description: 'This is just used for development and viewing changes to the styles.'
     });
   });
 

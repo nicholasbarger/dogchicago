@@ -62,44 +62,7 @@
         <li {{#nav.about}}class="active"{{/nav.about}}><a href="/about">Our Story</a></li>
         <li {{#nav.faq}}class="active"{{/nav.faq}}><a href="/faq">FAQ</a></li>
         <li {{#nav.contact}}class="active"{{/nav.contact}}><a href="/contact">Contact Us</a></li>
-        <li {{#nav.reservation}}class="active"{{/nav.reservation}}>
-          <a href="/reservation/new">Reservations</a>
-
-          {{^disableReservationMenu}}
-          <div class="menu">
-            <form method="post" action="/claim-reservation">
-              <div class="row">
-                <label class="radio"><input type="radio" name="newGuest" value="true" checked>New Guest</label>
-                <label class="radio"><input type="radio" name="newGuest" value="false">Returning Guest</label>
-              </div>
-
-              <!--<div class="row">-->
-                <!--<div class="group">-->
-                  <!--<label for="dropOff">Drop Off</label>-->
-                  <!--<input type="date" id="dropOff" name="dropOff" class="datetimepicker">-->
-                <!--</div><div class="group">-->
-                  <!--<label for="pickUp">Pick Up</label>-->
-                  <!--<input type="date" id="pickUp" name="pickUp" class="datetimepicker">-->
-                <!--</div>-->
-              <!--</div>-->
-
-              <div class="row">
-                <label for="ownerFirstName">First Name</label>
-                <input type="text" id="ownerFirstName" name="ownerFirstName">
-              </div>
-
-              <div class="row">
-                <label for="ownerLastName">Last Name</label>
-                <input type="text" id="ownerLastName" name="ownerLastName">
-              </div>
-
-              <div class="row">
-                <button type="submit" class="attention">Claim Reservation</button>
-              </div>
-            </form>
-          </div>
-          {{/disableReservationMenu}}
-        </li>
+        <li {{#nav.reservation}}class="active"{{/nav.reservation}}><a href="/reservation">Reservations</a></li>
       </ul>
     </nav>
   </header>

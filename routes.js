@@ -14,34 +14,6 @@ module.exports = function(app, emailProvider) {
     });
   }
 
-  function newReservation(res, reservation) {
-    res.render('new-reservation.html', {
-      title: 'Dog Hotel and Daycare - New Guest Reservation',
-      description: 'Complete your dog daycare or boarding reservation online.',
-      nav: setNav(null, 'reservation'),
-      disableReservationMenu: true,
-      reservation: reservation,
-      partials: {
-        roomsPartial: 'rooms-partial',
-        stateListPartial: 'state-list-partial'
-      }
-    });
-  }
-
-  function returningReservation(res, reservation) {
-    console.log('returning');
-    res.render('returning-reservation.html', {
-      title: 'Dog Hotel and Daycare - Returning Guest Reservation',
-      description: 'Returning guests of Dog Hotel and Daycare in Chicago, IL can quickly and easily complete their reservations online.',
-      nav: setNav(null, 'reservation'),
-      disableReservationMenu: true,
-      reservation: reservation,
-      partials: {
-        roomsPartial: 'rooms-partial'
-      }
-    });
-  }
-
   app.get('/', function(req, res) {
     res.render('home.html', {
       title: 'Dog Hotel and Daycare - Dog Daycare Chicago, Dog Boarding Chicago',
@@ -168,14 +140,6 @@ module.exports = function(app, emailProvider) {
       nav: setNav(null, 'reservation'),
       disableReservationMenu: true
     });
-  });
-
-  app.get('/reservation/new', function(req, res) {
-    newReservation(res);
-  });
-
-  app.get('/reservation/returning', function(req, res) {
-    returningReservation(res);
   });
 
   app.get('/t/:id', function(req, res) {

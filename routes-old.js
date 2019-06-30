@@ -12,8 +12,8 @@ module.exports = function(app) {
   app.get('/#!grooming/citr', function(req, res) { res.redirect(301, '/spa') });
   app.get('/#!gallery/cv41', function(req, res) { res.redirect(301, '/') });
   app.get('/#!price-menu/cbon', function(req, res) { res.redirect(301, '/') });
-  app.get('/#!blank/c20vl', function(req, res) { res.redirect(301, '/reservation/new') });
-  app.get('/#!new-guest/c24yx', function(req, res) { res.redirect(301, '/reservation/new') });
-  app.get('/#!returning-guests/c1va1', function(req, res) { res.redirect(301, '/reservation/returning') });
+  app.get('/#!blank/c20vl', function(req, res) { res.redirect(301, '/reservation') });
+  app.get('/#!new-guest/c24yx', function(req, res) { res.redirect(301, '/reservation') });
+  app.get('/#!returning-guests/c1va1', function(req, res) { res.redirect(301, '/reservation') });
   app.get('/#!contact/c2q4', function(req, res) { res.redirect(301, '/contact') });
 };

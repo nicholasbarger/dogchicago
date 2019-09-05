@@ -1,5 +1,5 @@
 var newrelic = require('newrelic');
-var http = require('http');
+var https = require('https');
 var port = process.env.PORT || 3000;
 
 var bodyParser = require('body-parser');

@@ -1,5 +1,5 @@
 var newrelic = require('newrelic');
-var https = require('https');
+var http = require('http');
 var port = process.env.PORT || 3000;
 
 var bodyParser = require('body-parser');
@@ -36,6 +36,9 @@ app.use(cookieParser());
 // redirect non-www to www for seo
 if(process.env.NODE_ENV === 'production') {
   app.get('*', function(req, res, next) {
+    var reqType = req.headers["x-forwarded-proto"];
+    reqType == 'https' ? next() : res.redirect("https://" + req.headers.host + req.url);
+    
     if (req.headers.host.slice(0, 3) != 'www') {
       res.redirect('https://www.' + req.headers.host + req.url, 301);
     } else {

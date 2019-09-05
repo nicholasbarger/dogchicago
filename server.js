@@ -38,12 +38,12 @@ if(process.env.NODE_ENV === 'production') {
   app.get('*', function(req, res, next) {
     var reqType = req.headers["x-forwarded-proto"];
     reqType == 'https' ? next() : res.redirect("https://" + req.headers.host + req.url);
-    
-    if (req.headers.host.slice(0, 3) != 'www') {
-      res.redirect('https://www.' + req.headers.host + req.url, 301);
-    } else {
-      next();
-    }
+
+    // if (req.headers.host.slice(0, 3) != 'www') {
+    //   res.redirect('https://www.' + req.headers.host + req.url, 301);
+    // } else {
+    //   next();
+    // }
   });
 }
 
